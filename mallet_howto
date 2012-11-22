@@ -1,3 +1,0 @@
-mallet/bin/mallet import-file --input data/data_titles.csv --output data/titles.mallet --remove-stopwords --keep-sequence
-
-mallet/bin/mallet train-topics --input data/titles.mall --num-topics 50 --output-state data/topic-state.gz --num-iterations 100 --xml-topic-report data/report.xml

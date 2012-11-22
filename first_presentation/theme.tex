@@ -1,0 +1,102 @@
+%Copyright 2008 by Adrian Böhmichen
+%
+% This file is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This file is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this file.  If not, see <http://www.gnu.org/licenses/>.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Ubuntuusers Vorlage für ein LaTeX-Beamer Theme            %
+%                                                               %
+% Für das Korrekte funktionieren benötigt man einen header.png  %
+% und ein logo.png Datei!                                       %
+% Zusätzlich muss man folgende Pakete benutzten:                %
+%   \usepackage{graphicx}                                       %
+%   \usepackage[percent]{overpic}                               %
+%                                                               %
+% Danach muss nur noch am Anfang die Datei                      %
+% mit \input{} eingebunden werden.                              %
+%                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%weitere Farbe spezifizieren:
+%Farben von dem Humantheme
+%\definecolor{Orange}{RGB}{240,165,19}
+\definecolor{Orange}{RGB}{5,215,242}
+%\definecolor{Human-Base}{RGB}{129,102,71}
+\definecolor{Human-Base}{RGB}{5,25,242}
+%Farben aus dem Inyokatheme
+%\definecolor{uuheader1}{RGB}{164,143,101}
+\definecolor{uuheader1}{RGB}{5,25,242}
+%\definecolor{uuheader2}{RGB}{129,106,59}
+\definecolor{uuheader2}{RGB}{5,25,242}
+
+
+%Theme festlegen für alle Templates die nicht selbstständig definiert werden:
+\usepackage{beamerthemedefault}
+
+
+%Definieren des Innertheme, zuständig für die Symbole bei Listen
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{items}[circle]
+
+\setbeamercolor{item}{fg=Human-Base}
+
+%entfernen der Navigationsleiste
+\beamertemplatenavigationsymbolsempty
+
+%Logo definieren, man kann die Lage nicht verändern
+%\logo{\includegraphics[scale=0.1]{logo.png}}
+
+
+%Kopf- und Fußzeile definieren
+%\setbeamertemplate{headline}
+%{%
+%\begin{overpic}[width=\paperwidth
+% nächste Zeile dient zum anzeigen eines Rasters, für das paltzieren des ToC hilfreich
+%,grid,tics=10
+%]
+%{header.png}%
+%  \put(0,11){\insertsectionnavigationhorizontal{\paperwidth}{~}{~}}%
+%  \end{overpic}
+%}
+
+\setbeamertemplate{footline}[text line]
+{%
+\begin{minipage}[b]{116mm}
+\insertauthor \hfill%
+%neue Navigationsleiste
+ \insertframenumber ~/ \inserttotalframenumber\\[1ex]
+\end{minipage}
+}
+
+% Farben festlegen ausserhalb des innertheme
+
+%Allgemeine Angaben und Verbesserung vom default Theme
+\setbeamercolor{structure}{fg=uuheader1}
+\setbeamercolor{section in toc}{fg=Human-Base}
+\setbeamercolor{subsection in toc}{parent=section in toc}
+\setbeamercolor{framesubtitle}{fg=uuheader2}
+
+
+%Farbe und Form der Blöcke definieren
+\setbeamertemplate{blocks}[rounded]
+%\setbeamercolor{block title}{fg=uuheader1,bg=Orange}
+%\setbeamercolor{block title alerted}{use=alerted text,fg=black,bg=alerted text.fg!75!bg}
+%\setbeamercolor{block title example}{use=example text,fg=black,bg=example text.fg!75!bg}
+
+%\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!25!bg}
+%\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!25!bg}
+%\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!25!bg}
+
+%Für den Titleframe
+\setbeamertemplate{title page}[default][rounded=true]
+\setbeamercolor{title}{fg=uuheader2,bg=Orange}

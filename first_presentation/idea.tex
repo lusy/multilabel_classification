@@ -21,7 +21,9 @@
 \date{\today}
 
 \begin{frame}
-	\titlepage
+    \titlepage
+    \begin{block}{https://github.com/lusy/multilabel\_classification}
+    \end{block}
 \end{frame}
 
 \begin{frame}
@@ -31,76 +33,122 @@
 
 \section{Datensatz}
 \begin{frame}
-	\frametitle{Eigenschaften des Datensatzes}
-	\begin{itemize}
-        \item (was ist das denn für einen Datensatz?)
-		\item  enthält  $1\,111\,456$ Dokumente
-		\item  bsp für einen Eintrag
-		\item  jedes Dokument hat min. 1 Label (Klasse)
-		\item  wie viele haben genau 1, 2, ..
-        \item  aus welchen Jahren sind die Publikationen
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Aufbau des Datensatzes}
-    bsp für einen Eintrag
+    \frametitle{Datensatz}
+    \begin{itemize}
+        \item mathematische Publikationen mit Titeln und Abstracts
+        \item enthält  $1.1$ Mio. Dokumente
+        \item jedes Dokument hat min. 1 Label
+        \item $75.6 \%$ 1 Label, $24.3 \%$ 2 Label und ca. $0.1 \%$ mehr Labels
+        %\item aus welchen Jahren sind die Publikationen
+    \end{itemize}
+    \begin{block}{Aufbau}
+        \begin{itemize}
+            \item[Doc:] [ID] [LABELS] [YEAR] [TITLE] [ABSTRACT]
+        \end{itemize}
+    \end{block}
 \end{frame}
 
 \section{Verteilung der Labels}
 \begin{frame}
-	\frametitle{Verteilung der Labels}
-    was sind die häufigsten?
-    wie viele Labels pro Publication
-    welche treten oft zusammen auf?
+    \frametitle{Verteilung der Labels}
+    \begin{center}
+        \includegraphics[scale=0.3]{figures/labels.png}
+    \end{center}
+    \begin{itemize}
+        \item häufigstes Klasse: PN mit $266\, 198$ Dokumente
+        \item seltenstes Klasse: QL mit $1448$ Dokumente
+    \end{itemize}
 \end{frame}
 
 \section{Vorverarbeitung}
 \begin{frame}
-	\frametitle{Vorverarbeitung}
-	\begin{itemize}
-		\item  genutzte Tools?
-		\item  Probleme?
+    \frametitle{Vorverarbeitung}
+    \begin{itemize}
+        \item  Tools: python, bash, scikit-learn, liblinear, mallet
+        \item  Probleme?
         \item  Corner stones?
         \item  geschätzter/gemessener Aufwand (Speicher, Laufzeit)
         \item  was beinhaltet sie überhaupt (Stratified Sampling, etc.)
-	\end{itemize}
+    \end{itemize}
 \end{frame}
 
+\section{SVM} % (fold)
+\label{sec:SVM}
+
+% section SVM (end)
 \begin{frame}
-	\frametitle{Multilabel Classification}
-	\begin{itemize}
-		\item Aufgabenstellung
-		\item Was ist besonders zu beachten?
-		\item Kenngrößen
-        \item Evaluationsgrößen: Recall, Precision, F1, micro and macro averaging
-	\end{itemize}
+    \frametitle{SVM Klassifizierung}
 \end{frame}
 
+\section{LDA} % (fold)
+\label{sec:LDA}
+
+% section LDA (end)
 \begin{frame}
-	\frametitle{Multilabel Classification auf die Daten/nur auf Title? angewandt}
+    \frametitle{Topic Modeling mit LDA}
+\end{frame}
+\section{Klassifikation} % (fold)
+\label{sec:Klassifikation}
+
+% section Klassifikation (end)
+\begin{frame}
+    \frametitle{Multiclass Classification}
     \begin{itemize}
-        \item Labelkombination als einen "Label" zusammengefasst (Multilabel - Multiclass)
-        \item was ist der Unterschied Multilabel/Multiclass
+        \item jeder Datensatz hat nur ein Label
+        \item aber der gesamte Datensatz besitzt mehr als eine Klasse
+        \item Kenngrößen
+        \item Evaluationsgrößen: Recall, Precision, F1, micro and macro averaging
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Multilabel Classification}
+    \begin{itemize}
+        \item mehrere Klassen für einen Eintrag
+        \item One-Vs-One und One-vs-Rest Klassifizierer
+        \item Kenngrößen
+        \item Evaluationsgrößen: Recall, Precision, F1, micro and macro averaging
+    \end{itemize}
+\end{frame}
+
+\section{Ergebnis auf Titeln} % (fold)
+\label{sec:Ergebnis}
+
+% section Ergebnis (end)
+\begin{frame}
+    \frametitle{vorläufiges Ergebnis mit Titel}
+    \begin{itemize}
+        \item SVM mit Unigrammen: $58 \%$
+        \item SVM mit 10 Topics: $10 \%$
         \item One vs Rest
         \item Ranking SVM?
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Multilabel Classification mit Dimensionsreduktion}
+    \frametitle{Multilabel Classification mit Dimensionsreduktion}
+\end{frame}
+
+\section{Weiteres} % (fold)
+\label{sec:Weiteres}
+
+% section Weiteres (end)
+\begin{frame}
+    \frametitle{Probleme}
+    \begin{itemize}
+        \item unterschiedliche Klassengrößen
+        \item Aufwand der Berechnungen
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Topic Modelling und LDA}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Probleme}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Weitere Analysen}
+    \frametitle{Weitere Analysen}
+    \begin{itemize}
+        \item Abstracts einbeziehen
+        \item N-gramme
+        \item Sampling
+        \item Ergebnis mit mehr Topics
+    \end{itemize}
 \end{frame}
 
 \end{document}

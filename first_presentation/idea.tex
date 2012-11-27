@@ -104,9 +104,26 @@
     \begin{itemize}
         \item jeder Datensatz hat nur ein Label
         \item aber der gesamte Datensatz besitzt mehr als eine Klasse
-        \item Kenngrößen
-        \item Evaluationsgrößen: Recall, Precision, F1, micro and macro averaging
+        %\item Kenngrößen
+        %\item Evaluationsgrößen: Recall, Precision, F1, micro and macro averaging
     \end{itemize}
+    \begin{block}{Beispiel}
+    \begin{center}
+    \begin{table}
+        \rowcolors[]{1}{blue!20}{blue!10}
+        \begin{tabular}{ccc}
+            \tiny\textbf{doc\_id} &\tiny \textbf{Label}  \\
+            \hline
+            \tiny 1 &\tiny A  \\
+            \tiny 2 &\tiny B  \\
+            \tiny 3 &\tiny B  \\
+            \tiny 4 &\tiny C  \\
+            \tiny 5 &\tiny A  \\
+        \end{tabular}
+         \caption*{Beispiel Multiclass mit Klassen A,B und C}
+    \end{table}
+    \end{center}
+    \end{block}
 \end{frame}
 
 \begin{frame}
@@ -114,9 +131,26 @@
     \begin{itemize}
         \item mehrere Klassen für einen Eintrag
         \item One-Vs-One und One-vs-Rest Klassifizierer
-        \item Kenngrößen
-        \item Evaluationsgrößen: Recall, Precision, F1, micro and macro averaging
+        %\item Kenngrößen
+        %\item Evaluationsgrößen: Recall, Precision, F1, micro and macro averaging
     \end{itemize}
+    \begin{block}{Beispiel}
+    \begin{center}
+    \begin{table}
+        \rowcolors[]{1}{blue!20}{blue!10}
+        \begin{tabular}{ccc}
+            \tiny\textbf{doc\_id} &\tiny \textbf{Label}  \\
+            \hline
+            \tiny 1 &\tiny A  \\
+            \tiny 2 &\tiny B  \\
+            \tiny 3 &\tiny B,A  \\
+            \tiny 4 &\tiny C,A,B  \\
+            \tiny 5 &\tiny A  \\
+        \end{tabular}
+         \caption*{Beispiel Multilabel mit Klassen A,B und C}
+    \end{table}
+    \end{center}
+    \end{block}
 \end{frame}
 
 \section{Ergebnis auf Titeln} % (fold)
@@ -124,7 +158,7 @@
 
 % section Ergebnis (end)
 \begin{frame}
-    \frametitle{vorläufiges Ergebnis mit Titel}
+    \frametitle{Ergebnis mit Titel}
     \begin{center}
     \begin{table}
     \rowcolors[]{1}{blue!20}{blue!10}
@@ -171,11 +205,16 @@
 \begin{frame}
     \frametitle{Weitere Analysen}
     \begin{itemize}
-        \item Abstracts einbeziehen
-        \item N-gramme
-        \item Sampling
+        \item Titel und Abstracts einbeziehen
+        \item N-gramme auf Texten
+        \item Sampling der Daten
         \item Ergebnis mit mehr Topics
     \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Danke}
+    \begin{block}{Fragen?}
+    \end{block}
+\end{frame}
 \end{document}

@@ -39,7 +39,7 @@
         \item enthält  $1.1$ Mio. Dokumente
         \item jedes Dokument hat min. 1 Label
         \item $75.6 \%$ 1 Label, $24.3 \%$ 2 Label und ca. $0.1 \%$ mehr Labels
-        %\item aus welchen Jahren sind die Publikationen
+    %\item aus welchen Jahren sind die Publikationen
     \end{itemize}
     \begin{block}{Aufbau}
         \begin{itemize}
@@ -78,6 +78,9 @@
 % section SVM (end)
 \begin{frame}
     \frametitle{SVM Klassifizierung}
+    \begin{center}
+    \includegraphics[scale=0.75]{figures/Svm_intro.png}
+    \end{center}
 \end{frame}
 
 \section{LDA} % (fold)
@@ -86,6 +89,10 @@
 % section LDA (end)
 \begin{frame}
     \frametitle{Topic Modeling mit LDA}
+    \begin{itemize}
+        \item[Topic] diskrete Verteilung über Wörtern
+        \item[Dokument] diskrete Verteilung über Topics
+    \end{itemize}
 \end{frame}
 \section{Klassifikation} % (fold)
 \label{sec:Klassifikation}
@@ -117,12 +124,30 @@
 % section Ergebnis (end)
 \begin{frame}
     \frametitle{vorläufiges Ergebnis mit Titel}
-    \begin{itemize}
-        \item SVM mit Unigrammen: $58 \%$
-        \item SVM mit 10 Topics: $10 \%$
-        \item One vs Rest
-        \item Ranking SVM?
-    \end{itemize}
+    \begin{center}
+    \begin{table}
+    \rowcolors[]{1}{blue!20}{blue!10}
+    \begin{tabular}{c|cccc}
+        \tiny\textbf{Klassen} &\tiny \textbf{unigram SVM} &\tiny \textbf{14 Topics SVM} & \tiny \textbf{50 Topics SVM} & \tiny \textbf{100 Topics SVM}\\
+        \hline
+        \tiny AC &\tiny 59\% &\tiny 15\% &\tiny 35 \% &\tiny 36 \%\\
+        \tiny EV &\tiny 39 \% &\tiny 0.1\% &\tiny 4 \% &\tiny 7 \%\\
+        \tiny EW &\tiny 29 \% &\tiny 0\% &\tiny 1 \% &\tiny 1.5 \%\\
+        \tiny EX &\tiny 50 \% &\tiny 0.3\% &\tiny 20 \% &\tiny 22 \%\\
+        \tiny MC &\tiny 58 \% &\tiny 0.0\% &\tiny 19 \% &\tiny 23 \%\\
+        \tiny PE &\tiny 53 \% &\tiny 9\% &\tiny 26 \% &\tiny 26 \%\\
+        \tiny PN &\tiny 50 \% &\tiny 31\% &\tiny 33 \% &\tiny 31 \%\\
+        \tiny PO &\tiny 31 \% &\tiny 0\% &\tiny 0.4 \% &\tiny 1.7 \%\\
+        \tiny PQ &\tiny 80 \% &\tiny 60\% &\tiny 64 \% &\tiny 64 \%\\
+        \tiny PS &\tiny 55 \% &\tiny 0\% &\tiny 1 \% &\tiny 3 \%\\
+        \tiny QL &\tiny 22 \% &\tiny 0\% &\tiny 0 \% &\tiny 0 \%\\
+        \tiny UR &\tiny 69 \% &\tiny 28\% &\tiny 47 \% &\tiny 46 \%\\
+        \tiny VS &\tiny 71 \% &\tiny 0\% &\tiny 0 \% &\tiny 0 \%\\
+        \tiny XY &\tiny 67 \% &\tiny 34\% &\tiny 45 \% &\tiny 43 \%\\
+    \end{tabular}
+     \caption*{F1-Measures}
+    \end{table}
+    \end{center}
 \end{frame}
 
 \begin{frame}
@@ -137,7 +162,8 @@
     \frametitle{Probleme}
     \begin{itemize}
         \item unterschiedliche Klassengrößen
-        \item Aufwand der Berechnungen
+        \item Aufwand der Berechnungen(Speicher)
+        \item Topicverteilung nicht sparse
     \end{itemize}
 \end{frame}
 

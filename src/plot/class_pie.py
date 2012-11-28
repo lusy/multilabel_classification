@@ -9,9 +9,9 @@ fracs = [266198, 255421, 149917, 136456, 122025, 104227, 85476, 82404, 70796, 67
 labels = ['PN', 'PQ', 'UR', 'EX', 'EV', 'XY', 'PE', 'PO', 'EW', 'AC', 'MC', 'PS', 'VS + QL']
 
 # Farben des pie charts
-#colors = [(200, 77, 95), (125, 194, 75), (216, 222, 174), (142, 189, 153), (221, 194, 63)]
-#colors = [tuple(i / 255. for i in c) for c in colors]
-colors = ['b', 'g', 'r', 'c', 'm', 'y', 'burlywood', 'w']
+colors = [(200, 77, 95), (125, 194, 75), (216, 222, 174), (142, 189, 153), (221, 194, 63)]
+colors = [tuple(i / 255. for i in c) for c in colors]
+#colors = ['b', 'g', 'r', 'c', 'm', 'y', 'burlywood', 'w']
 
 fig = plt.figure(1, figsize=(10, 8))
 ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])
@@ -27,5 +27,5 @@ proptease.set_size('medium')
 plt.setp(texts, fontproperties=proptease)
 plt.setp(autotexts, fontproperties=proptease)
 
-plt.show()
-#plt.savefig('labels.png')
+#plt.show()
+plt.savefig('labels_fancy.png')

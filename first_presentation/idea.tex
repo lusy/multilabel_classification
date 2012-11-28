@@ -61,12 +61,16 @@
     \end{itemize}
 \end{frame}
 
-\section{Vorverarbeitung}
+\section{Einführung}
 \begin{frame}
-    \frametitle{Vorverarbeitung}
+    \frametitle{Einführung}
+    \begin{block}{Zielsetzung}
+        Verbesserung der Klassifizierung von Dokumenten mit Hilfe vonTopic Models
+    \end{block}
     \begin{itemize}
         \item  Tools: python, bash, scikit-learn, liblinear, mallet
-        \item  Probleme?
+        \item  Stopwörter und Satzzeichen entfernen
+        \item  Aufteilung in Test-($25 \%$) und Trainingsdatensatz($75 \%$) 
         \item  Corner stones?
         \item  geschätzter/gemessener Aufwand (Speicher, Laufzeit)
         \item  was beinhaltet sie überhaupt (Stratified Sampling, etc.)
@@ -84,16 +88,21 @@
     \end{center}
 \end{frame}
 
-\section{LDA} % (fold)
+\section{Topic Models und LDA} % (fold)
 \label{sec:LDA}
 
 % section LDA (end)
 \begin{frame}
-    \frametitle{Topic Modeling mit LDA}
-    \begin{itemize}
-        \item[Topic] diskrete Verteilung über Wörtern
-        \item[Dokument] diskrete Verteilung über Topics
-    \end{itemize}
+    \frametitle{Topic Models und LDA}
+    \begin{block}{Topic}
+         Verteilung über Wörtern
+    \end{block}
+    \begin{block}{Dokument}
+        diskrete Verteilung über Wörtern
+        diskrete Verteilung über Topics
+    \end{block}
+    \begin{block}{LDA}
+    \end{block}
 \end{frame}
 \section{Klassifikation} % (fold)
 \label{sec:Klassifikation}
@@ -217,6 +226,7 @@
     \frametitle{Weitere Analysen}
     \begin{itemize}
         \item Titel und Abstracts einbeziehen
+        \item Parameter für SVM lernen
         \item N-gramme auf Texten
         \item Sampling der Daten
         \item Ergebnis mit mehr Topics

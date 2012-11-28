@@ -190,10 +190,12 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Multilabel Classification mit Dimensionsreduktion}
+    \frametitle{Evaluation}
     \begin{itemize}
-        \item F1-Measure
-        \item micro average F1-Measure
+        \item Precision \[\frac{\#(\text{relevant items retrieved})}{\#(\text{retrieved items})}\]
+        \item Reacall \[\frac{\#(\text{relevant items retrieved})}{\#(\text{relevant items})}\]
+        \item F1-Measure \[F_1 = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{\mathrm{precision} + \mathrm{recall}}\]
+        \item micro average F1-Measure 
         \item macro average F1-Measure
     \end{itemize}
 \end{frame}

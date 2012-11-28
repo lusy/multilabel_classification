@@ -53,7 +53,7 @@
 \begin{frame}
     \frametitle{Verteilung der Labels}
     \begin{center}
-        \includegraphics[scale=0.3]{figures/labels.png}
+        \includegraphics[scale=0.3]{figures/labels_fancy.png}
     \end{center}
     \begin{itemize}
         \item häufigstes Klasse: PN mit $266\, 198$ Dokumente
@@ -61,13 +61,14 @@
     \end{itemize}
 \end{frame}
 
-\section{Einführung}
+\section{Aufgabenstellung}
 \begin{frame}
-    \frametitle{Einführung}
+    \frametitle{Aufgabenstellung}
     \begin{block}{Zielsetzung}
-        Verbesserung der Klassifizierung von Dokumenten mit Hilfe vonTopic Models
+        Verbesserung Klassifizierung von Dokumenten mit Hilfe voni Topic Models
     \end{block}
     \begin{itemize}
+        \item Topics als Verfahren zur Dimensionsreduktion
         \item  Tools: python, bash, scikit-learn, liblinear, mallet
         \item  Vorverarbeitung: Stopwörter und Satzzeichen entfernen
         \item  Aufteilung in Test-($25 \%$) und Trainingsdatensatz($75 \%$)
@@ -117,8 +118,7 @@
     \begin{itemize}
         \item jeder Datensatz hat nur ein Label
         \item aber der gesamte Datensatz besitzt mehr als eine Klasse
-        %\item Kenngrößen
-        %\item Evaluationsgrößen: Recall, Precision, F1, micro and macro averaging
+        \item welches Verfahrend wird verwendet
     \end{itemize}
     \begin{block}{Beispiel}
     \begin{center}
@@ -170,10 +170,10 @@
     \frametitle{Evaluation}
     \begin{itemize}
         \item Precision \[\frac{\#(\text{relevant items retrieved})}{\#(\text{retrieved items})}\]
-        \item Reacall \[\frac{\#(\text{relevant items retrieved})}{\#(\text{relevant items})}\]
+        \item Recall \[\frac{\#(\text{relevant items retrieved})}{\#(\text{relevant items})}\]
         \item F1-Measure \[F_1 = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{\mathrm{precision} + \mathrm{recall}}\]
-        \item micro average F1-Measure
-        \item macro average F1-Measure
+        \item micro/macro average F1-Measure
+        %\item macro average F1-Measure
     \end{itemize}
 \end{frame}
 

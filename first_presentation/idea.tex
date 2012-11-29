@@ -79,35 +79,38 @@
     \end{itemize}
 \end{frame}
 
-\section{SVM} % (fold)
+\section{Support Vector Machine} % (fold)
 \label{sec:SVM}
 
 % section SVM (end)
 \begin{frame}
-    \frametitle{SVM Klassifizierung}
+    \frametitle{Support Vector Machines}
     \begin{center}
     \includegraphics[scale=0.75]{figures/Svm_intro.png}
     \end{center}
     \begin{itemize}
-        \item Margin maximieren
-        \item verschiedene Kernel zur Trennung der Hyperebene
+        \item maximiert Abgrenzung zwischen Klassen
+        \item basiert auf Vektorräumen
     \end{itemize}
 \end{frame}
 
-\section{Topic Models und LDA} % (fold)
+\section{Topic Models} % (fold)
 \label{sec:LDA}
 
 % section LDA (end)
 \begin{frame}
-    \frametitle{Topic Models und LDA}
+    \frametitle{Topic Models}
     \begin{block}{Topic}
-         Verteilung über Wörtern
+        jedes Topic ist eine Verteilung über Wörter
     \end{block}
     \begin{block}{Dokument}
-        diskrete Verteilung über Wörtern
-        diskrete Verteilung über Topics
+        jedes Dokument ist Verteilung über Topics
     \end{block}
     \begin{block}{LDA}
+        \begin{itemize}
+            \item generativer Prozess zum finden von Topics der Dokumente
+            \item findet k Topics auf Dokumenten
+        \end{itemize}
     \end{block}
 \end{frame}
 \section{Klassifikation} % (fold)
@@ -115,14 +118,16 @@
 
 % section Klassifikation (end)
 \begin{frame}
-    \frametitle{Multiclass Classification}
+    \frametitle{Multiclass/label Classification}
     \begin{itemize}
-        \item jeder Datensatz hat nur ein Label
+    \item Multiclass - jeder Datensatz hat nur ein Label
         \item aber der gesamte Datensatz besitzt mehr als eine Klasse
-        \item welches Verfahrend wird verwendet
+        \item Multilabel - ein Label kann mehrere Klassen beinhalten
+        \item One-Vs-One und One-vs-Rest Klassifizierer
     \end{itemize}
-    \begin{block}{Beispiel}
-    \begin{center}
+    \begin{block}{Beispiele}
+    \begin{columns}
+                \column{.50\textwidth}
     \begin{table}
         \rowcolors[]{1}{blue!20}{blue!10}
         \begin{tabular}{ccc}
@@ -134,22 +139,9 @@
             \tiny 4 &\tiny C  \\
             \tiny 5 &\tiny A  \\
         \end{tabular}
-         \caption*{Beispiel Multiclass mit Klassen A,B und C}
+         \caption*{Multiclass mit Klassen A,B und C}
     \end{table}
-    \end{center}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Multilabel Classification}
-    \begin{itemize}
-        \item ein Label kann mehrere Klassen beinhalten
-        \item One-Vs-One und One-vs-Rest Klassifizierer
-        %\item Kenngrößen
-        %\item Evaluationsgrößen: Recall, Precision, F1, micro and macro averaging
-    \end{itemize}
-    \begin{block}{Beispiel}
-    \begin{center}
+                \column{.50\textwidth}
     \begin{table}
         \rowcolors[]{1}{blue!20}{blue!10}
         \begin{tabular}{ccc}
@@ -161,9 +153,9 @@
             \tiny 4 &\tiny C,A,B  \\
             \tiny 5 &\tiny A  \\
         \end{tabular}
-         \caption*{Beispiel Multilabel mit Klassen A,B und C}
+         \caption*{Multilabel mit Klassen A,B und C}
     \end{table}
-    \end{center}
+    \end{columns}
     \end{block}
 \end{frame}
 

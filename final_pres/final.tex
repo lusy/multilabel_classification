@@ -1,0 +1,142 @@
+\documentclass[12pt, xcolor=table]{beamer}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage{verbatim}
+
+\usepackage[percent]{overpic}
+\usepackage[footnotesize, bf]{caption}
+\input{theme.tex}
+\input{syntax}
+\renewcommand{\footnotesize}{\tiny}
+
+\begin{document}
+\title{Endpräsentation - Multilabel Classification}
+\author{peterr und Lusy}
+\date{\today}
+
+\begin{frame}
+    \titlepage
+    \begin{block}
+        \tiny \url{https://github.com/lusy/multilabel\_classification}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Übersicht}
+    \tableofcontents
+\end{frame}
+
+\begin{frame}
+     \frametitle{Einleitung}
+     \begin{itemize}
+         \item Reduktion der Features durch Topic Models
+         \item Multilabel problem, jeder Eintrag  kann in mehreren Klassen fallen
+     \end{itemize}
+\end{frame}
+
+\section{Datensatz}
+\begin{frame}
+    \frametitle{Datensatz}
+    \begin{itemize}
+        \item mathematische Publikationen mit Titeln und Abstracts
+        \item enthält  $1.1$ Mio. Dokumente
+        \item jedes Dokument hat min. 1 Label
+        \item $75.6 \%$ 1 Label, $24.3 \%$ 2 Label und ca. $0.1 \%$ mehr Labels
+    %\item aus welchen Jahren sind die Publikationen
+    \end{itemize}
+    \begin{block}{Auszug}
+        \begin{table}
+            \rowcolors[]{1}{blue!20}{blue!10}
+            \begin{tabular}{cccll}
+                \tiny\textbf{ID} &\tiny \textbf{CLASSES} &\tiny \textbf{YEAR} &\tiny \textbf{TITLE} & \tiny \textbf{ABSTRACT} \\
+                \hline
+                \tiny 1000000796 &\tiny EW & \tiny 2000 & \tiny Dynamo: A transparent dynamic \dots  & \tiny We describe the design \dots \\
+                \tiny 1000000815 &\tiny EW & \tiny 2000 & \tiny Unification-based pointer \dots  & \tiny This paper describes \dots \\
+                \multicolumn{5}{c}{\dots} \\
+                \tiny 1000003814 &\tiny EV,PE & \tiny 1995 & \tiny A GENETIC APPROACH TO \dots  & \tiny The quadratic assignment \dots \\
+                \tiny 1000004333 & \tiny PQ,EX &\tiny 1995 &\tiny DYNAMIC EUCLIDEAN MINIMUM \dots & \tiny We maintain the minimum \dots \\
+            \end{tabular}
+             \caption*{Darstellung des Datensatzes}
+        \end{table}
+    \end{block}
+\end{frame}
+
+\section{Vorbereitung SVM}
+\begin{frame}
+    \frametitle{Vorbereitung SVM}
+    \begin{itemize}
+        \item Darstellung der Texte im Vector-space-model
+        \item entfernen von Stopwörtern(is, and, the, \ldots)
+    \end{itemize}
+\end{frame}
+\section{Vorbereitung Topic Models}
+\begin{frame}
+    \frametitle{Topic models}
+    \begin{center}
+        \includegraphics[scale=0.35]{figures/IntroToLDA.png}
+    \end{center}
+\end{frame}
+
+\section{Sampling der Daten}
+\begin{frame}
+    \frametitle{Sampling der Daten}
+    \begin{itemize}
+        \item Stratified Sampling
+        \item anhand der Labelkombinationen
+        \item jedes Label kommt sowhol in Testdatensatz und Trainingsdatensatz vor
+        \item Aufteilung: 70\% zum Trainieren und 30 \% zum Testen
+    \end{itemize}
+\end{frame}
+
+\section{Ergebnisse der SVM}
+\begin{frame}
+    \frametitle{Ergebnisse der SVM}
+\end{frame}
+\subsection{Labelkombinationen} % (fold)
+\begin{frame}
+    \frametitle{Labelkombinationen}
+\end{frame}
+
+\subsection{Multilabel} % (fold)
+\begin{frame}
+    \frametitle{Multilabel}
+\end{frame}
+
+\section{Ergebnisse mit Topic Models}
+\begin{frame}
+    \frametitle{Datensatz}
+\end{frame}
+\subsection{Labelkombinationen} % (fold)
+\begin{frame}
+     \frametitle{Labelkombinationen}
+\end{frame}
+
+\subsection{Multilabel} % (fold)
+\begin{frame}
+     \frametitle{Multilabel}
+\end{frame}
+
+\section{Ursachen} % (fold)
+\begin{frame}
+    \frametitle{Ursachen}
+\end{frame}
+
+\section{Probleme}
+\begin{frame}
+     \frametitle{Probleme}
+\end{frame}
+
+\section{Ausblick} % (fold)
+\begin{frame}
+    \frametitle{Ausblick}
+\end{frame}
+
+
+\end{document}

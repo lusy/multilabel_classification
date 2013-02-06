@@ -63,7 +63,7 @@
                 \tiny 1000003814 &\tiny EV,PE & \tiny 1995 & \tiny A GENETIC APPROACH TO \dots  & \tiny The quadratic assignment \dots \\
                 \tiny 1000004333 & \tiny PQ,EX &\tiny 1995 &\tiny DYNAMIC EUCLIDEAN MINIMUM \dots & \tiny We maintain the minimum \dots \\
             \end{tabular}
-             \caption*{Darstellung des Datensatzes}
+             \caption*{Auszug des Datensatzes}
         \end{table}
     \end{block}
 \end{frame}
@@ -85,14 +85,54 @@
     \begin{itemize}
         \item Darstellung der Texte im Vector-space-model
         \item entfernen von Stopwörtern(is, and, the, \ldots)
+        \item Vokabular mit $n$ Wörtern: alle vorkommende Wörter in den Texten
     \end{itemize}
+        \begin{table}
+            \rowcolors[]{1}{blue!20}{blue!10}
+            \begin{tabular}{c|cccc}
+                \tiny\textbf{$doc_{id}$} &\tiny \textbf{$word_{1}$} &\tiny \textbf{$word_{2}$} &\tiny \textbf{\dots} & \tiny \textbf{$word_{n}$} \\
+                \hline
+                \tiny 1000000796 &\tiny 1 & \tiny 2 & \tiny  \dots  & \tiny 0 \\
+                \tiny 1000000815 &\tiny 0 & \tiny 3 & \tiny \dots  & \tiny 1 \\
+                \multicolumn{5}{c}{\dots} \\
+                \tiny 1000003814 &\tiny 2  & \tiny 0 & \tiny  \dots  & \tiny 0 \\
+                \tiny 1000004333 & \tiny 0 &\tiny 0 &\tiny  \dots & \tiny 1 \\
+            \end{tabular}
+             \caption*{Darstellung im Vektor space model}
+        \end{table}
 \end{frame}
-\section{Vorbereitung Topic Models}
+\section{Topic Models mit LDA}
 \begin{frame}
-    \frametitle{Topic models}
+    \frametitle{Topic models mit LDA}
     \begin{center}
         \includegraphics[scale=0.35]{figures/IntroToLDA.png}
     \end{center}
+\end{frame}
+
+\section{Vorbereitung Topic Models}
+\begin{frame}
+    \frametitle{Vorbereitung Topic models}
+    \begin{itemize}
+        \item Verteilung der Topics ist Feature für Dokumente
+        \item Werte zwischen 0 und 1
+        \item Summe für Einträge eines Dokuments beträgt 1
+        \item Eintrag i enthält die Wahrscheinlichkeit für Topic i
+        \item $\#topics << \#words$
+    \end{itemize}
+        \begin{table}
+            \rowcolors[]{1}{blue!20}{blue!10}
+            \begin{tabular}{c|cccc}
+                \tiny\textbf{$doc_{id}$} &\tiny \textbf{$topic_{1}$} &\tiny \textbf{$topic_{2}$} &\tiny \textbf{\dots} & \tiny \textbf{$topic_{n}$} \\
+                \hline
+                \tiny 1000000796 &\tiny 0.1 & \tiny 0.05 & \tiny  \dots  & \tiny $1 \cdot 10^{-6}$  \\
+                \tiny 1000000815 &\tiny 0.0 & \tiny 0.2 & \tiny \dots  & \tiny 0.1 \\
+                \multicolumn{5}{c}{\dots} \\
+                \tiny 1000003814 &\tiny 0.3  & \tiny $1 \cdot 10^{-6}$ & \tiny  \dots  & \tiny 0.0 \\
+                \tiny 1000004333 & \tiny 0.0 &\tiny 0.0 &\tiny  \dots & \tiny 0.2 \\
+            \end{tabular}
+            \caption*{Repräsentation durch Topic Verteilung}
+        \end{table}
+\end{frame}
 \end{frame}
 
 \section{Sampling der Daten}
@@ -100,7 +140,7 @@
     \frametitle{Sampling der Daten}
     \begin{itemize}
         \item Stratified Sampling
-        \item anhand der Labelkombinationen
+        \item anhand der Labelkombinationen, also 'EW,PE' eine Klasse
         \item jedes Label kommt sowhol in Testdatensatz und Trainingsdatensatz vor
         \item Aufteilung: 70\% zum Trainieren und 30 \% zum Testen
     \end{itemize}
@@ -134,19 +174,23 @@
      \frametitle{Multilabel}
 \end{frame}
 
-\section{Ursachen} % (fold)
+\section{Ursachen und Probleme}
 \begin{frame}
-    \frametitle{Ursachen}
-\end{frame}
-
-\section{Probleme}
-\begin{frame}
-     \frametitle{Probleme}
+    \frametitle{Probleme}
+    \begin{itemize}
+        \item Wahrscheinlichkeiten der Topics sehr schnell sehr klein
+        \item Vektoren sind voll besetzt im Gegensatz zu unigram-Modell
+        \item großer Speicheraufwand
+        \item Ansatz performt nicht auf ungesehen Daten
+    \end{itemize}
 \end{frame}
 
 \section{Ausblick} % (fold)
 \begin{frame}
     \frametitle{Ausblick}
+    \begin{itemize}
+        \item keinen
+    \end{itemize}
 \end{frame}
 
 

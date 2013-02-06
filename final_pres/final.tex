@@ -158,30 +158,38 @@
 \end{frame}
 
 \section{Ergebnisse der SVM}
-\subsection{Labelkombinationen} % (fold)
+%\subsection{Labelkombinationen} % (fold)
 \begin{frame}
-    \frametitle{Labelkombinationen SVM}
-    %\begin{center}
-        %\includegraphics[scale=0.5]{figures/test.png}
-    %\end{center}
+    \frametitle{SVM Ergebnisse}
+    \begin{center}
+        \includegraphics[scale=0.4]{figures/svm_plot.png}
+    \end{center}
+    \begin{itemize}
+        \item Labelkombinationen micro-average F1: $55 \%$
+        \item One-vs-Rest micro-average F1: $52 \%$
+    \end{itemize}
 \end{frame}
 
-\subsection{Multilabel} % (fold)
-\begin{frame}
-    \frametitle{Multilabel SVM}
-    %\begin{center}
-        %\includegraphics[scale=0.5]{figures/test.png}
-    %\end{center}
-\end{frame}
+%\subsection{Multilabel} % (fold)
+%\begin{frame}
+    %\frametitle{Multilabel SVM}
+    %%\begin{center}
+        %%\includegraphics[scale=0.5]{figures/test.png}
+    %%\end{center}
+%\end{frame}
 
 \section{Ergebnisse mit Topic Models}
 \begin{frame}
     \frametitle{Ergebnisse mit Topic Models}
+    \begin{block}{Jedes Label einzeln mit OvR}
+        \begin{itemize}
+            \item Mean F1-Score beträgt $\sim 1 \%$
+            \item 12 von 14 Labels mit F1-Score $< 0.1 \%$
+            \item Label UR mit $0.16 \%$ und Label AC mit $1.6 \%$ F1-Score
+        \end{itemize}
+    \end{block}
     \begin{block}{Labelkombination}
         Mean F1-Score beträgt $5 \%$
-    \end{block}
-    \begin{block}{Jedes Label einzeln mit OvR}
-        Mean F1-Score beträgt $3 \%$
     \end{block}
 \end{frame}
 %\subsection{Labelkombinationen} % (fold)

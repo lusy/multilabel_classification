@@ -1,0 +1,54 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{lmodern} % bessere Schrift für PDFs
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+
+\usepackage{lipsum} % Nur zum Auffüllen von Text
+
+
+% Hurenkinder und Schusterjungen verbieten
+\clubpenalty=10000
+\widowpenalty=10000
+
+% neue Absatz wird mit Leerzeile begonnen:
+\parindent 0pt
+\parskip 12pt
+
+\title{Mutlilabel Classification}
+\author{AutorInnen}
+
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    \lipsum[11]
+\end{abstract}
+
+\tableofcontents
+
+\section{Einleitung}
+\lipsum[1]
+\section{Methoden}
+\lipsum[2]
+\section{Ergebnisse}
+\lipsum[3]
+\section{Diskussion}
+\lipsum[4]
+\section{Zusammenfassung}
+\lipsum[5]
+
+\nocite{*}
+
+\bibliography{literature}
+\bibliographystyle{plain}
+
+\end{document}

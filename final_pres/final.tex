@@ -9,6 +9,7 @@
 \usepackage{fancyvrb}
 \usepackage{color}
 \usepackage{verbatim}
+\usepackage{alltt}
 
 \usepackage[percent]{overpic}
 \usepackage[footnotesize, bf]{caption}
@@ -33,11 +34,16 @@
     \tableofcontents
 \end{frame}
 
+\section{Einleitung} % (fold)
 \begin{frame}
      \frametitle{Einleitung}
      \begin{itemize}
-         \item Reduktion der Features durch Topic Models
-         \item Multilabel problem, jeder Eintrag  kann in mehreren Klassen fallen
+         %\item Reduktion der Features durch Topic Models
+         \item jeder Eintrag hat mehrere Labels (Multilabel Problem)
+         \item Textklassifikation mit SVM im Vector-Space-Model
+         \item Nachteil: sehr großer Featureraum - jedes Wort ist Feature
+         \item Ansatz: Featurereduktion mit Topic Models
+         \item Verteilung der Topics für ein Dokument sind Features
      \end{itemize}
 \end{frame}
 
@@ -68,16 +74,6 @@
     \end{block}
 \end{frame}
 
-\subsection{Idee} % (fold)
-\begin{frame}
-     \frametitle{Idee}
-     \begin{itemize}
-         \item jeder Eintrag hat mehrere Labels
-         \item State-of-the-Art Textklassifikation mit SVM und Text im Vector-Space-Model
-         \item Nachteil: sehr großer Featureraum - jedes Wort ist Feature
-         \item Ansatz: Featurereduktion mit Topic Models
-     \end{itemize}
-\end{frame}
 
 \section{Tools}
 \begin{frame}
@@ -144,7 +140,6 @@
             \caption*{Repräsentation durch Topic Verteilung}
         \end{table}
 \end{frame}
-\end{frame}
 
 \section{Sampling der Daten}
 \begin{frame}
@@ -179,34 +174,24 @@
 %\end{frame}
 
 \section{Ergebnisse mit Topic Models}
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{Gelernte Topics}
-    \begin{verbatim}
-        \tiny T1: system systems paper dynamic presented developed distributed analysis \\
-        \\
-        \tiny T10: inequalities inequality convex variational functions monotone principle \\
-        \\
+    \begin{alltt}
+    \tiny T1: system systems paper dynamic presented developed distributed analysis\\
+        \tiny T10: inequalities inequality convex variational functions monotone principle\\
         \tiny T20: bound bounds lower upper number show results case tight give bounded obtain \\
-        \\
         \tiny T24: alpha bar gamma phi beta vertical mu theta element pi infinity \\
-        \\
         \tiny T30: noise signal signals source channel sources noisy frequency \\
-        \\
         \tiny T40: molecular energy calculations molecules bond density electron \\
-        \\
         \tiny T50: dimension fractal brownian motion box super law fractional \\
-        \\
         \tiny T60: bifurcation center dot point points critical hopf parameter \\
-        \\
         \tiny T70: approach range applications wide methodology results \\
-        \\
         \tiny T80: class classes properties paper general show property special \\
-        \\
         \tiny T90: flow flows velocity stokes fluid navier turbulent vortex \\
-        \\
         \tiny T100: case cases general special results ii study paper iii show
-    \end{verbatim}
+    \end{alltt}
 \end{frame}
+
 \begin{frame}
     \frametitle{Ergebnisse mit Topic SVM}
     \begin{block}{Jedes Label einzeln mit OvR}

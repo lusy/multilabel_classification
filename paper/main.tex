@@ -10,6 +10,9 @@
 
 \usepackage{lipsum} % Nur zum Auffüllen von Text
 
+% add subdirectory for images
+\graphicspath{{figures/}}
+
 
 % Hurenkinder und Schusterjungen verbieten
 \clubpenalty=10000
@@ -36,6 +39,12 @@
 \tableofcontents
 
 \section{Einleitung}
+\begin{figure}
+    \centering
+    \def\svgwidth{0.5\columnwidth}
+    \input{figures/figure.pdf_tex}
+    \caption{F1 Score der Labels mit SVM.}
+\end{figure}
 \lipsum[1]
 \section{Methoden}
 \lipsum[2]
@@ -45,6 +54,7 @@
 \lipsum[4]
 \section{Zusammenfassung}
 \lipsum[5]
+
 
 \nocite{*}
 

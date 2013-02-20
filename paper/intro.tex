@@ -1,5 +1,11 @@
 \section{Einleitung}
 
+Die Klassifikation von fexten ist in den letzt,n Ja:ren mit der steigenden Anzahl an Informationen und Entstehung von Textsammlungen zur einem wichtigen Verfahren zur Organisation und Handhabung geworden. Viele praktische Anwendungen nutzen Textklassifikation als Verfahren um Texte für Benutzer besser zu Nutzbar zu machen, so zum Beispiel Bibliothekssysteme, Empfehlungssysteme, Spamerkennung, Erkennung der Sprache in Texten oder der Erkennung von Themen in Nachrichten.
+
+Traditionell wurde jedem Dokument exakt ein Label $l$ aus einer Menge von Labels $L$ zugewiesen. Wenn $|L| = 2$, dann spricht man von einem binären Klassifiaktionsproblem und wenn $|L| > 2$ von einem Multiclass Problem. Bei der Multilabeltextklassifikation werden Dokumenten eine Menge von Labels $Y \in L$ zugeordnet. Die Multilabelklassifikation hat auch ihren Ursprung in der Textklassifikation, da dort häufig die Anforderung besteht Dokumenten in verschiedene Gruppen einzuteilen.
+
+In dieser Arbeit werden wir die Auswirkungen von der Latent Dirichlet Allocation zur Vorverarbeitung für die Multilabelklassifikation mit Support Vector Machines betrachten.
+
 \subsection{Datensatz}
 Der Datensatz besteht aus $1.1$ Millionen mathematischen Publikationen mit Title, Abstract, Klassen und Erscheinungsjahr. Die Publikationen werden in 14 verschiedene Klassen eingeteilt. Für $75.6 \%$ der Dokumente wurde nur eine Klasse vergeben, für $24.3 \%$ zwei Klassen und $0.1 \%$ mehr als zwei Klassen. Jedes Dokument wird mindestens einer Klasse zugeordnet.
 \label{sub:datensatz}
@@ -29,7 +35,7 @@ Der Datensatz besteht aus $1.1$ Millionen mathematischen Publikationen mit Title
 
 \subsection{Multilabel Klassifikation}
 \label{sub:multilabel_klassifikation}
-
+Bei der Multilabel Klassifikation existieren zwei Arten von Ansätzen, um das Problem zu lösen. Bei der ersten wird das Problem transformiert und bei der zweiten werden existierende Verfahren adaptiert.
 
 \subsection{Support Vector Machines}
 \label{sub:support_vector_machines}

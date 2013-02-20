@@ -39,6 +39,38 @@ Bei der Multilabel Klassifikation existieren zwei Arten von Ansätzen, um das Pr
 
 \subsection{Support Vector Machines}
 \label{sub:support_vector_machines}
+Die  Support Vector Machine(SVM) ein Verfahren des unüberwachten Lernen und kann zum Klassifizieren von Objekten verwendet werden. Zum Lernen einer SVM werden die Trainingsdaten als Vektoren mit den zugehörigen Klassen übergeben. Für Texte ist die Repräsentation als Vektor meistens das Vektorspace-Modell, bie dem jedes Wort in dem Text als Feature angesehen wird. Die SVM versucht dann anhand dieser Daten eine Hyperebene so in den Raum zu legen, so dass die Trainingsdaten in zwei Klassen eingeteilt werden. Der Abstand der Vektoren die der Hyperebene am nächsten liegen wird dabei maximiert. Ursprünglich wurden SVMs zur Unterteilung der Objekte in nur zwei Klassen konzipiert.
+Es wurde gezeigt, dass Support Vector Machines eines der besten Verfahren zur Klassifikation ist \cite{Joachims:1998:TCS:645326.649721}.
+
+%\begin{figure}[h]
+    %\centering
+    %\def\svgwitdth{0.75\columnwidth}
+    %\input{figures/svm_intro.pdf_tex}
+    %\caption{Hypereben einer SVM im 2-dimensionalen}
+    %\label{fig:svm_intro}
+    %\footnote*{http://commons.wikimedia.org/wiki/File:Svm\_intro.svg}
+%\end{figure}
+
+
+%Die Support Vector Machine(SVM) ist ein weit verbreitetes Verfahren zur Klassifizierung im Bereich des maschinellen Lernens. Es handelt sich dabei um ein Ve
+
+% unüberwachtes Lernen
+
+
+
+Um Support Vector Machines auf das Multilabel Klassifizierungsproblem zu adaptieren wird für jede Klasse $c \in L$, sodass für ein Dokument $D_i$ mit den Labels $L_i$ gilt:
+\[
+    \tilde c =
+    \begin{cases}
+        1 &\mbox{wenn } c \in L_i \\
+        0 &\mbox{sonst}
+    \end{cases}
+\]
+
+Wobei $\tilde c$ die neue zu lernende Klasse für den  binären Klassifkator repräsentiert.
+Zur Klassifikation von neuen ungesehen Dokumenten wird nun jeder der binären Klassifikatoren gefragt, ob das aktuelle Dokument zu der gelernten Klasse gehört. Ist die Antwort positiv wird sich für dieses Dokument diese Klasse notiert, so dass man am Ende eine Menge von Klassen für dieses Dokument erhält.
+
+
 
 
 \subsection{Latent Dirichlet Allocation}

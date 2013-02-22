@@ -8,7 +8,7 @@
 \usepackage{listings}
 \usepackage{color}
 
-\usepackage{lipsum} % Nur zum Auffüllen von Text
+%\usepackage{lipsum} % Nur zum Auffüllen von Text
 
 % add subdirectory for images
 \graphicspath{{figures/}}
@@ -34,28 +34,20 @@
 \maketitle
 
 \begin{abstract}
-    \lipsum[11]
+    Multilabel-Textklassifikation mit Support Vector Machines und Latent Dirichlet Allocation zur Dimensionsreduktion.
 \end{abstract}
 
 \tableofcontents
 
-\section{Einleitung}
-\begin{figure}
-    \centering
-    \def\svgwidth{0.5\columnwidth}
-    \input{figures/figure.pdf_tex}
-    \caption{F1 Score der Labels mit SVM.}
-\end{figure}
-\lipsum[1]
-\section{Methoden}
-\lipsum[2]
-\section{Ergebnisse}
-\lipsum[3]
-\section{Diskussion}
-\lipsum[4]
-\section{Zusammenfassung}
-\lipsum[5]
+\input{intro}
 
+\input{methods}
+
+\section{Ergebnisse}
+
+\section{Diskussion}
+
+\section{Zusammenfassung}
 
 \nocite{*}
 

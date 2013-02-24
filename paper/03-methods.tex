@@ -15,6 +15,21 @@ Tabelle \ref{tab:class_meaning} gibt einen Überblick über die Häufigkeit und 
 %ist es nicht cooler die Häufigkeiten in % anzugeben? ich finds iwie übersichtlicher..
 
 %[Doc:] [ID] [LABELS] [YEAR] [TITLE] [ABSTRACT]
+%    \begin{block}{Auszug}
+%        \begin{table}
+%            \rowcolors[]{1}{blue!20}{blue!10}
+%            \begin{tabular}{cccll}
+%                \tiny\textbf{ID} &\tiny \textbf{CLASSES} &\tiny \textbf{YEAR} &\tiny \textbf{TITLE} & \tiny \textbf{ABSTRACT} \\
+%                \hline
+%                \tiny 1000000796 &\tiny EW & \tiny 2000 & \tiny Dynamo: A transparent dynamic \dots  & \tiny We describe the design \dots \\
+%                \tiny 1000000815 &\tiny EW & \tiny 2000 & \tiny Unification-based pointer \dots  & \tiny This paper describes \dots \\
+%                \multicolumn{5}{c}{\dots} \\
+%                \tiny 1000003814 &\tiny EV,PE & \tiny 1995 & \tiny A GENETIC APPROACH TO \dots  & \tiny The quadratic assignment \dots \\
+%                \tiny 1000004333 & \tiny PQ,EX &\tiny 1995 &\tiny DYNAMIC EUCLIDEAN MINIMUM \dots & \tiny We maintain the minimum \dots \\
+%            \end{tabular}
+%             \caption*{Auszug des Datensatzes}
+%        \end{table}
+%    \end{block}
 
 \begin{table}[h]
     \centering
@@ -61,10 +76,18 @@ Anstatt der einzelnen Klassen verwenden wir die vergebenen Klassenkombinationen,
 % scikit-learn: LinearSVC für die Klassifikation
 % was ist überhaupt die Motivation für die Dimensionsreduktion?
     %Hoch-dimensionale Daten (> 1 Mio. Merkmale)
+    % jedes Wort ist Feature
     %Sehr dünn besetzte (sparse) Vektoren
     % d.h. sehr wenige Informationen pro Merkmal
-    % Reduktion auf wenige (100-1000?) Dimensionen
+    % Reduktion auf wenige (100-1000?) Dimensionen (die Topics werden die Features für die SVM)
     % Kann auch als Kompression betrachtet werden.
     % Spart Rechenzeit, Speicher, ...
     % Erkennung und Clustering zusammenhängender Merkmale.
+    %\frametitle{Vorbereitung Topic models}
+    %\begin{itemize}
+    %    \item Verteilung der Topics ist Feature für Dokumente
+    %    \item Werte zwischen 0 und 1
+    %    \item Summe für Einträge eines Dokuments beträgt 1
+    %    \item Eintrag i enthält die Wahrscheinlichkeit für Topic i
+    %    \item $\#topics << \#words$
 

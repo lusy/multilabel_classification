@@ -67,7 +67,7 @@ Für die Aufteilung wurde \emph{stratified sampling} verwendet, sodass die Klass
 Wichtig hierbei ist es, dass wir anstatt der einzelnen Klassen die vergebenen Klassenkombinationen verwenden, sodass die Kombinationen von Klassen anteilig in den beiden Datensätzen auftreten.
 
 Ferner haben wir im Trainingdatensatz Stoppwörter wie ``the'', ``a'', ``at'', ``which'', etc. entfernt, da diese für eine Klassifizierung wenig Information liefern.
-Hierfür haben wir .... benutzt. %tool
+Hierfür haben wir .... benutzt. %tool / bibliothek?
 
 % noch was?
 
@@ -75,6 +75,14 @@ Hierfür haben wir .... benutzt. %tool
 % scikit-learn: LinearSVC
 
 \subsection{Dimensionsreduktion mit LDA und Multilabel-Klassifikation}
+
+Eine Repräsentation der Textdokumente im Vektorspace-Modell liefert hoch-dimensionale Daten, wobei jedes Dokument mehr als $1$ Millionen Merkmale besitzt.
+Dabei sind die Vektoren, die die einzelnen Dokumente darstellen, sehr dünn besetzt.
+Das hat die Erprobung einer Dimensionsreduktion mithilfe von LDA motiviert.
+
+Auf den Daten wurden zuerst X Topics mit \emph{mallet} \cite{McCallumMALLET} gelernt.
+Später wurden diese Topics als Features für die lineare \emph{Support Vector Machine} verwendet.
+
 % mallet für LDA
 % scikit-learn: LinearSVC für die Klassifikation
 % was ist überhaupt die Motivation für die Dimensionsreduktion?
@@ -87,10 +95,4 @@ Hierfür haben wir .... benutzt. %tool
     % Spart Rechenzeit, Speicher, ...
     % Erkennung und Clustering zusammenhängender Merkmale.
     %\frametitle{Vorbereitung Topic models}
-    %\begin{itemize}
-    %    \item Verteilung der Topics ist Feature für Dokumente
-    %    \item Werte zwischen 0 und 1
-    %    \item Summe für Einträge eines Dokuments beträgt 1
-    %    \item Eintrag i enthält die Wahrscheinlichkeit für Topic i
-    %    \item $\#topics << \#words$
 

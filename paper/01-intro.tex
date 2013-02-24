@@ -7,12 +7,13 @@ Literature Review
 \end{comment}
 
 Die Klassifikation von Texten ist in den letzten Jahren mit der steigenden Anzahl an Informationen und Entstehung von Textsammlungen zur einem wichtigen Verfahren zur Organisation und Handhabung geworden.
-Viele praktische Anwendungen nutzen Textklassifikation als Verfahren, um Texte für Benutzer besser nutzbar zu machen, so zum Beispiel Bibliothekssysteme, Empfehlungssysteme, Spamerkennung, Erkennung der Sprache in Texten oder der Erkennung von Themen in Nachrichten.
+Viele praktische Anwendungen nutzen Textklassifikation als Verfahren, um die Benutzung von Texten zu vereinfachen und zugänglicher zu machen, so zum Beispiel Bibliothekssysteme, Empfehlungssysteme, Spamerkennung, Erkennung der Sprache in Texten oder der Erkennung von Themen in Nachrichten.
 
-Traditionell wurde jedem Dokument exakt ein Label $l$ aus einer Menge von Labels $L$ zugewiesen.
-Wenn $|L| = 2$, dann spricht man von einem binären Klassifiaktionsproblem und wenn $|L| > 2$ von einem Multiclass Problem.
-Bei der Multilabeltextklassifikation werden Dokumenten eine Menge von Labels $Y \in L$ zugeordnet.
-Die Multilabelklassifikation hat auch ihren Ursprung in der Textklassifikation, da dort häufig die Anforderung besteht Dokumenten in verschiedene Gruppen einzuteilen.
+Traditionell wird bei Textklassifikation jedem Dokument exakt ein Label $l$ aus einer Menge von Labels $L$ zugewiesen.
+Wenn $|L| = 2$, dann spricht man von einem binären Klassifiaktionsproblem und wenn $|L| > 2$, von einem Multiclass-Problem.
+Bei Multilabel-Textklassifikation werden Dokumenten eine Menge von Labels $Y \in L$ zugeordnet.
+Die Multiclass-Klassifikation hat auch ihren Ursprung in der Textklassifikation, da dort häufig die Anforderung besteht, Dokumente in verschiedene Gruppen (mehr als 2) einzuteilen (ein Beispiel hierfür wäre die Einsortierung von Nachrichten in verschiedene Kategorien).
+Das Gleiche gilt auch für die Multilabel-Klassifikation, da es oftmals sinnvoll ist, ein Dokument gleichzeitig mehreren Kategorien zuzuordnen (die selbe Nachricht könnte z.B. gleichzeitig die Labels "Politik", "Wirtschaft" und "International" erhalten).
 
 In dieser Arbeit werden wir die Auswirkungen von der Latent Dirichlet Allocation zur Vorverarbeitung für die Multilabelklassifikation mit Support Vector Machines betrachten.
 

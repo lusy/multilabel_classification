@@ -8,28 +8,32 @@
 \label{sub:datensatz}
 %woher kommt der Datensatz?
 Der untersuchte Datensatz besteht aus $1.1$ Millionen mathematischen Publikationen mit Titel, Abstract, Klassen und Erscheinungsjahr.
+Der schematische Aufbau des Datensatzes wird in Tabelle \ref{tab:data} dargestellt.
+
+%[Doc:] [ID] [LABELS] [YEAR] [TITLE] [ABSTRACT]
+\begin{table}[h]
+    %\rowcolors[]{1}{blue!20}{blue!10}
+    \begin{tabular}{cccll}
+        \tiny\textbf{ID} &\tiny \textbf{CLASSES} &\tiny \textbf{YEAR} &\tiny \textbf{TITLE} & \tiny \textbf{ABSTRACT} \\
+        \hline
+        \tiny 1000000796 &\tiny EW & \tiny 2000 & \tiny Dynamo: A transparent dynamic \dots  & \tiny We describe the design \dots \\
+        \tiny 1000000815 &\tiny EW & \tiny 2000 & \tiny Unification-based pointer \dots  & \tiny This paper describes \dots \\
+        \multicolumn{5}{c}{\dots} \\
+        \tiny 1000003814 &\tiny EV,PE & \tiny 1995 & \tiny A GENETIC APPROACH TO \dots  & \tiny The quadratic assignment \dots \\
+        \tiny 1000004333 & \tiny PQ,EX &\tiny 1995 &\tiny DYNAMIC EUCLIDEAN MINIMUM \dots & \tiny We maintain the minimum \dots \\
+    \end{tabular}
+    \caption{Auszug des Datensatzes}
+    \label{tab:data}
+\end{table}
+
+
 Die Publikationen werden in 14 verschiedene Klassen eingeteilt.
-Für $75.6 \%$ der Dokumente wurde nur eine Klasse vergeben, für $24.3 \%$ zwei Klassen und für $0.1 \%$ mehr als zwei Klassen.
+Für $75.6 \%$ der Dokumente wurde nur eine Klasse vergeben, für $24.3 \%$ -- zwei Klassen und für $0.1 \%$ -- mehr als zwei Klassen.
 Jedes Dokument wird mindestens einer Klasse zugeordnet.
 Tabelle \ref{tab:class_meaning} gibt einen Überblick über die Häufigkeit und Bedeutung der im Datensatz verwendeten Klassenlabels.
 %ist es nicht cooler die Häufigkeiten in % anzugeben? ich finds iwie übersichtlicher..
 
-%[Doc:] [ID] [LABELS] [YEAR] [TITLE] [ABSTRACT]
-%    \begin{block}{Auszug}
-%        \begin{table}
-%            \rowcolors[]{1}{blue!20}{blue!10}
-%            \begin{tabular}{cccll}
-%                \tiny\textbf{ID} &\tiny \textbf{CLASSES} &\tiny \textbf{YEAR} &\tiny \textbf{TITLE} & \tiny \textbf{ABSTRACT} \\
-%                \hline
-%                \tiny 1000000796 &\tiny EW & \tiny 2000 & \tiny Dynamo: A transparent dynamic \dots  & \tiny We describe the design \dots \\
-%                \tiny 1000000815 &\tiny EW & \tiny 2000 & \tiny Unification-based pointer \dots  & \tiny This paper describes \dots \\
-%                \multicolumn{5}{c}{\dots} \\
-%                \tiny 1000003814 &\tiny EV,PE & \tiny 1995 & \tiny A GENETIC APPROACH TO \dots  & \tiny The quadratic assignment \dots \\
-%                \tiny 1000004333 & \tiny PQ,EX &\tiny 1995 &\tiny DYNAMIC EUCLIDEAN MINIMUM \dots & \tiny We maintain the minimum \dots \\
-%            \end{tabular}
-%             \caption*{Auszug des Datensatzes}
-%        \end{table}
-%    \end{block}
+
 
 \begin{table}[h]
     \centering

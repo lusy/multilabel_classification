@@ -1,5 +1,9 @@
 \section{Methoden}
 
+%Datensatz
+%Verwendete Tools
+%Eigene Implementierung
+
 \subsection{Datensatz}
 Der Datensatz besteht aus $1.1$ Millionen mathematischen Publikationen mit Title, Abstract, Klassen und Erscheinungsjahr. Die Publikationen werden in 14 verschiedene Klassen eingeteilt. Für $75.6 \%$ der Dokumente wurde nur eine Klasse vergeben, für $24.3 \%$ zwei Klassen und $0.1 \%$ mehr als zwei Klassen. Jedes Dokument wird mindestens einer Klasse zugeordnet.
 \label{sub:datensatz}
@@ -33,3 +37,9 @@ Der Datensatz besteht aus $1.1$ Millionen mathematischen Publikationen mit Title
 Zunächst haben wir unseren Datensatz in Test- und Trainingsdaten im Verhältnis 3:7 aufgeteilt, um unser gelerntes Modell auf ungesehen Daten zu testen. für die Aufteilung wurde das Stratified Sampling verwendet, sodass die Klassen anteilig in Test- und Trainingsdaten vertreten sind. Wir verwenden anstatt der einzelnen Klassen, die vergebenen Klassenkombinationen, sodass die Kombinationen von Klassen anteilig in den beiden Datensätzen auftreten.
 
 % subsection test_und_trainingsdaten (end)
+\subsection{Mutlilabel-Klassifikation}
+% scikit-learn: LinearSVC
+
+\subsection{Dimensionsreduktion mit LDA und Multilabel-Klassifikation}
+% mallet für LDA
+% scikit-learn: LinearSVC für die Klassifikation

@@ -60,16 +60,12 @@ Tabelle \ref{tab:class_meaning} gibt einen Überblick über die Häufigkeit und 
 \end{table}
 
 
+\subsection{Allgemeine Vorverarbeitung}
 
-\subsection{Test- und Trainingsdaten}
-\label{sub:test_und_trainingsdaten}
 Zunächst haben wir unseren Datensatz in Test- und Trainingsdaten im Verhältnis 3:7 aufgeteilt, um unser gelerntes Modell auf ungesehen Daten testen zu können.
 Für die Aufteilung wurde \emph{stratified sampling} verwendet, sodass die Klassen anteilig in Test- und Trainingsdaten vertreten sind.
-Anstatt der einzelnen Klassen verwenden wir die vergebenen Klassenkombinationen, sodass die Kombinationen von Klassen anteilig in den beiden Datensätzen auftreten.
+Wichtig hierbei ist es, dass wir anstatt der einzelnen Klassen die vergebenen Klassenkombinationen verwenden, sodass die Kombinationen von Klassen anteilig in den beiden Datensätzen auftreten.
 
-% subsection test_und_trainingsdaten (end)
-
-\subsection{Allgemeine Vorverarbeitung}
 % Entfernung von Stoppwörtern
 
 \subsection{Multilabel-Klassifikation}

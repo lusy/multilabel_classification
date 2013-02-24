@@ -46,9 +46,22 @@ Für die Aufteilung wurde \emph{stratified sampling} verwendet, sodass die Klass
 Anstatt der einzelnen Klassen verwenden wir die vergebenen Klassenkombinationen, sodass die Kombinationen von Klassen anteilig in den beiden Datensätzen auftreten.
 
 % subsection test_und_trainingsdaten (end)
+
+%\subsection{Allgemeine Vorverarbeitung}
+% Entfernung von Stoppwörtern
+
 \subsection{Mutlilabel-Klassifikation}
 % scikit-learn: LinearSVC
 
 \subsection{Dimensionsreduktion mit LDA und Multilabel-Klassifikation}
 % mallet für LDA
 % scikit-learn: LinearSVC für die Klassifikation
+% was ist überhaupt die Motivation für die Dimensionsreduktion?
+    %Hoch-dimensionale Daten (> 1 Mio. Merkmale)
+    %Sehr dünn besetzte (sparse) Vektoren
+    % d.h. sehr wenige Informationen pro Merkmal
+    % Reduktion auf wenige (100-1000?) Dimensionen
+    % Kann auch als Kompression betrachtet werden.
+    % Spart Rechenzeit, Speicher, ...
+    % Erkennung und Clustering zusammenhängender Merkmale.
+

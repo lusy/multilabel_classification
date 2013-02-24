@@ -10,11 +10,11 @@ Die Klassifikation von Texten ist in den letzten Jahren, mit der steigenden Anza
 Viele praktische Anwendungen nutzen Textklassifikation als Verfahren, um die Benutzung von Texten zu vereinfachen und zugänglicher zu machen, so zum Beispiel Bibliothekssysteme, Empfehlungssysteme, Spamerkennung, Erkennung der Sprache in Texten oder der Themen in Nachrichten.
 
 Traditionell wird bei Textklassifikation jedem Dokument $d$ exakt ein Label $l$ aus einer Menge von Labels $L$ zugewiesen.
-Wenn $|L| = 2$, dann spricht man von einem binären Klassifiaktionsproblem, wenn $|L| > 2$ -- von einem Multiclass-Problem.
+Wenn $|L| = 2$, dann spricht man von einem binären Klassifikationsproblem, wenn $|L| > 2$ -- von einem Multiclass-Problem.
 Bei Multilabel-Textklassifikation werden Dokumenten eine Menge von Labels $Y \in L$ zugeordnet.
 Die Multiclass-Klassifikation hat auch ihren Ursprung in der Textklassifikation, da dort häufig die Anforderung besteht, Dokumente in verschiedene Gruppen (mehr als 2) einzuteilen (ein Beispiel hierfür wäre die Einsortierung von Nachrichten in verschiedene Kategorien).
 Das Gleiche gilt auch für die Multilabel-Klassifikation, da es oftmals sinnvoll ist, ein Dokument gleichzeitig mehreren Kategorien zuzuordnen (die selbe Nachricht könnte z.B. gleichzeitig die Labels ``Politik'', ``Wirtschaft'' und ``International'' erhalten).
 
-In dieser Arbeit werden wir die Auswirkungen von der Latent Dirichlet Allocation zur Vorverarbeitung für die Multilabelklassifikation mit Support Vector Machines betrachten.
-
+In dieser Arbeit betrachten wir die Auswirkungen von der \emph{Latent Dirichlet Allocation} (LDA) zur Vorverarbeitung für die Multilabel-Klassifikation mit linearen \emph{Support Vector Machines} (SVM).
+Es wird überprüft, inwiefern eine Dimensionsreduktion des Featureraums mit Hilfe der LDA eine optimalere Lösung des Multilabel-Klassifikationsproblems liefert als die direkte Anwendung linearer SVM auf den selben Daten.
 

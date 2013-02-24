@@ -44,15 +44,20 @@ Zur Klassifikation von neuen ungesehen Dokumenten wird nun jeder der binären Kl
 Ist die Antwort positiv, wird sich für dieses Dokument diese Klasse notiert, so dass man am Ende eine Menge von Klassen für das Dokument erhält.
 
 
-
-
 \subsection{Latent Dirichlet Allocation}
 \label{sub:latent_dirichlet_allocation}
+
+Die \emph{Latent Dirichlet Allocation} (LDA) ist ein generatives Modell, das eine Topic-Verteilung für eine angegebene Menge von Textdokumenten errechnet.
+Dabei ist jedes Topic eine Verteilung über allen in der Dokumentensammlung vorhandenen Wörtern.
+Jedes Dokument kann als eine Verteilung über Topics dargestellt werden.
+
 % jedes Topic ist eine Verteilung über Wörter
 % jedes Dokument ist Verteilung über Topics
 % Latent Dirichlet Allocation(LDA)
 %      generativer Prozess zum finden von Topics der Dokumente
 %      findet k Topics auf Dokumenten
+
+
 
 %\subsection{Evaluierungsmaße}
 % Precision \[\frac{\#(\text{relevant items retrieved})}{\#(\text{retrieved items})}\]

@@ -6,8 +6,8 @@ Bei der ersten wird das Problem transformiert und bei der zweiten werden existie
 
 \subsection{Support Vector Machines}
 \label{sub:support_vector_machines}
-Die  Support Vector Machine(SVM) ein Verfahren des unüberwachten Lernens und kann zum Klassifizieren von Objekten verwendet werden.
-Zum Lernen einer SVM werden die Trainingsdaten als Vektoren mit den zugehörigen Klassen übergeben.
+Die \emph{Support Vector Machine} (SVM) ist ein Verfahren des unüberwachten Lernens, das zum Klassifizieren von Objekten verwendet wird.
+Zum Lernen einer SVM werden die Trainingsdaten als Vektoren, zusammen mit den zugehörigen Klassen übergeben.
 Für Texte ist die Repräsentation als Vektor meistens das Vektorspace-Modell, bei dem jedes Wort in dem Text als Feature angesehen wird.
 Die SVM versucht dann anhand dieser Daten eine Hyperebene so in den Raum zu legen, so dass die Trainingsdaten in zwei Klassen eingeteilt werden.
 Der Abstand der Vektoren, die der Hyperebene am nächsten liegen, wird dabei maximiert.
@@ -30,7 +30,7 @@ Es wurde gezeigt, dass Support Vector Machines eines der besten Verfahren zur Kl
 
 
 
-Um Support Vector Machines auf das Multilabel Klassifizierungsproblem zu adaptieren wird für jede Klasse $c \in L$, sodass für ein Dokument $D_i$ mit den Labels $L_i$ gilt:
+Um Support Vector Machines für das Multilabel Klassifizierungsproblem zu adaptieren, wird für jede Klasse $c \in L$, sodass für ein Dokument $D_i$ mit den Labels $L_i$ gilt:
 \[
     \tilde c =
     \begin{cases}
@@ -39,9 +39,9 @@ Um Support Vector Machines auf das Multilabel Klassifizierungsproblem zu adaptie
     \end{cases}
 \]
 
-Wobei $\tilde c$ die neue zu lernende Klasse für den  binären Klassifkator repräsentiert.
+Wobei $\tilde c$ die neue zu lernende Klasse für den binären Klassifkator repräsentiert.
 Zur Klassifikation von neuen ungesehen Dokumenten wird nun jeder der binären Klassifikatoren gefragt, ob das aktuelle Dokument zu der gelernten Klasse gehört.
-Ist die Antwort positiv wird sich für dieses Dokument diese Klasse notiert, so dass man am Ende eine Menge von Klassen für dieses Dokument erhält.
+Ist die Antwort positiv, wird sich für dieses Dokument diese Klasse notiert, so dass man am Ende eine Menge von Klassen für das Dokument erhält.
 
 
 

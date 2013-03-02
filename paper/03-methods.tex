@@ -74,6 +74,11 @@ Hierfür haben wir .... benutzt. %tool / bibliothek?
 \subsection{Multilabel-Klassifikation}
 % scikit-learn: LinearSVC
 
+In unserem ersten Experiment haben wir auf dem Datensatz direkt Multilabel-Klassifikation mit SVM angewandt.
+Dafür haben wir den \emph{LinearSVC}-Klassifier von scikit-learn genutzt.
+Dabei wurden die Daten im Vectorspace-Modell dargestellt, so dass jedes Dokument als Vektor modelliert ist, in dem der $i$. Eintrag angibt, wie oft das $i$. Wort aus dem Korpus in diesem Dokument vorkommt.
+
+
 \subsection{Dimensionsreduktion mit LDA und Multilabel-Klassifikation}
 
 Eine Repräsentation der Textdokumente im Vektorspace-Modell liefert hoch-dimensionale Daten, wobei jedes Dokument mehr als $1$ Millionen Merkmale besitzt.

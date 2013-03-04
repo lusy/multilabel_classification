@@ -1,43 +1,97 @@
 \section{Ergebnisse}
+\subsection{unigram SVM}
+\label{sub:unigram_svm}
 
-\begin{figure}
+Zunächst haben wir die Support Vector Machine auf einem Unigram Vector Space Model gelernt,
+um eine Vergleichwert für unseren Ansatz zu haben. Hiefür wurden zwei unterschiedliche Verfahren angewandt.
+Beim ersten Verfahren wurde das Multilabel Klassifikationproblem auf ein Multiclass Klassifikationsproblem reduziert,
+indem eine Labelkombination als eigene Klasse angesehen wird. Die Labelkombinationen wurden sortiert.
+Das zweite Verfahren verwendet den One-Vs-Rest-Klassifizierer(OvR), der für jede Klasse einen binären Klassifikator lernt,
+gegen alle anderen Datensätze, die diese Klasse nicht erhalten.
+
+Für die SVMs wurde eine linearer Kernel verwendet und mit der Klasse LinearSVC aus dem Machine Learning Package scikit-learn \cite{scikit-learn} trainiert. Der Bestrafungsparameter $C = 0.01$ wurde durch mehrere Durchläufe mit $C \in \{ 10^{-4},10^{-3}, \dots, 10^4 \}$ ermittelt.
+
+In Tabelle ~\ref{tab:unigram_svm} werden verschiedene Metriken für die beiden verfahren mit der Unigram SVM evaluiert.
+
+\begin{table}[h]
     \centering
-    \def\svgwitdth{0.1\columnwidth}
-    \input{figures/eval_svm_labelwise_plot.pdf_tex}
-    \caption{Ergebnisse der Klassifizierung mit Topics als Vorverarbeitung}
-    \label{fig:svm_topic_eval}
-\end{figure}
-\begin{figure}
+    \begin{tabular}{r|cc}
+        \small \textbf{Metrik} & \small\textbf{Labelkombinationen} & \small\textbf{One-Vs-Rest}\\
+        \hline
+        \small \textbf{Macro Precision Score}  & \small 58.1 & \small  \textbf{58.4}\\
+        \small \textbf{Macro Recall Score}     & \small \textbf{54.9} & \small 43.3\\
+        \small \textbf{Macro F1 Score}        & \small \textbf{56.5} & \small 49.7\\
+        \small \textbf{Micro Precision Score} & \small \textbf{62.2} & \small 56.2\\
+        \small \textbf{Micro Recall Score}    & \small \textbf{61.5} & \small 53.8\\
+        \small \textbf{Micro F1 Score}        & \small \textbf{61.8} & \small 55.0\\
+    \end{tabular}
+    \caption{Auswertung der Unigram SVM}
+    \label{tab:unigram_svm}
+\end{table}
+
+Nach der Auswertung der Durschnitte über alle Klassen ist in Grafik \ref{fig:svm_text_eval} das F1-Maß für jede der einzelne
+Klasse für beide Varianten aufgetragen.
+
+\begin{figure}[H]
     \centering
     \def\svgwitdth{0.1\columnwidth}
     \input{figures/text_svm.pdf_tex}
-    \caption{Ergebnisse der Klassifizierung Mit Unigram SVM}
+    \caption{F1-Maß der Unigram SVM}
     \label{fig:svm_text_eval}
 \end{figure}
 
+\subsection{Topics mit LDA}
+\label{sub:topics}
+Die Topics die für die Featurereduktion verwendet werden sollen, wurden mit Mallet \cite{McCallumMALLET} gelernt.
+Hierfür wurden die Stopwörter entfernt und wieder nur das Unigram Modell verwendet um die Topics zu lernen. 
+In Tabelle \ref{tab:topics_words} befinden sich einige der gelernten Topics der Trainingsdokumente aus dem Topicmodel mit 100 Topics. Dargestellt werden Topics durch die Wörter mit der höchsten Wahrscheinlichkeit.
+
 \begin{table}[h]
-    \begin{tabular}{rcc}
-        \tiny \textbf{Metrik} & \tiny\textbf{Unigram SVM Labelkombinationen} & \tiny\textbf{Unigram SVM OVR}\\
+    \centering
+    \begin{tabular}{c|l}
+        \small \textbf{Topic Nummer} & \small\textbf{Wörter}\\
         \hline
-        \tiny \textbf{Mean Precision Score}  & \tiny 58.1 & \tiny  58.4\\
-        \tiny \textbf{Mean Recall Score}     & \tiny 54.9 & \tiny 43.3\\
-        \tiny \textbf{Macro F1 Score}        & \tiny 56.5 & \tiny 49.7\\
-        \tiny \textbf{Micro Precision Score} & \tiny 62.2 & \tiny 56.2\\
-        \tiny \textbf{Micro Recall Score}    & \tiny 61.5 & \tiny 53.8\\
-        \tiny \textbf{Micro F1 Score}        & \tiny 61.8 & \tiny 55.0\\
+        \small \textbf{01} & \small system systems paper dynamic presented developed distributed analysis\\
+        \small \textbf{10} & \small inequalities inequality convex variational functions monotone principle\\
+        \small \textbf{20} & \small bound bounds lower upper number show results case tight give bounded obtain \\
+        \small \textbf{24} & \small alpha bar gamma phi beta vertical mu theta element pi infinity \\
+        \small \textbf{30} & \small noise signal signals source channel sources noisy frequency \\
+        \small \textbf{40} & \small molecular energy calculations molecules bond density electron \\
+        \small \textbf{50} & \small dimension fractal brownian motion box super law fractional \\
+        \small \textbf{60} & \small bifurcation center dot point points critical hopf parameter \\
+        \small \textbf{70} & \small approach range applications wide methodology results \\
+        \small \textbf{80} & \small class classes properties paper general show property special \\
+        \small \textbf{90} & \small flow flows velocity stokes fluid navier turbulent vortex \\
+        \small \textbf{100}& \small case cases general special results ii study paper iii show
     \end{tabular}
-    \caption{Ergebnisse der SVM mit Labelkombinationen und One-vs-Rest}
-    \label{tab:unigram_svm}
+    \caption{Auszug der wahrscheinlichsten Wörter einiger Topics}
+    \label{tab:topics_words}
 \end{table}
+
+Nach dem trainieren der Topics auf dem Trainingsdatensatz, wurde dieses Modell dann auf die ungesehen Dokumente aus
+dem Testdatensatz angewandt. Dadurch erhalten die Testdokumente ebenfalls eine Verteilung über die gelernten Topics.
+
+\subsection{Topic SVM}
+\label{sub:topic_svm}
+Training- und Testdatesatz werden jetzt durch die Verteilung über ihre Topics repräsentiert. Bei eine Topicmodell mit $n$ Topics
+werden die Dokumente jetzt nur noch durch $n$ numerische Features repräsentiert und es gilt $\all p_i: 0 \le p_i \le 1 $ mit $p_i$
+Wahrscheinlichkeit für das i-te Topic.
+
+Wie in dem Abschnitt mit der Unigram SVM werden wieder die beiden Varianten Labelkombinationen und One-Vs-Rest verwendet.
+Das Modell für die SVM wurde auf den Trainingsdokumenten als Topicverteilung gelernt und dann auf die Testdokumente angewandt.
+
+In den Tabllen \ref{tab:topics_svm_labelcombs} und \ref{tab:topics_svm_ovr} werden die Ergebnisse anhand von der Anzahl der Topics
+dargestellt.
+
 \begin{table}[h]
-    \begin{tabular}{rccccccc}
+    \begin{tabular}{r|ccccccc}
         \tiny\textbf{Metrik} & \tiny\textbf{10 Topics} &\tiny \textbf{40 Topics} &\tiny \textbf{70 Topics} &\tiny \textbf{100 Topics} & \tiny \textbf{130 Topics} &  \tiny \textbf{160 Topics} &  \tiny \textbf{190 Topics} \\
         \hline
-        \tiny \textbf{Mean Precision Score}  & \tiny 9.19 & \tiny 8.90& \tiny \textbf{9.88}&\tiny 8.47&\tiny 9.58&\tiny 9.20&\tiny 9.19\\
-        \tiny \textbf{Mean Recall Score}     & \tiny 8.20 & \tiny 8.35& \tiny \textbf{8.44}&\tiny 7.89&\tiny 8.30&\tiny 8.05&\tiny 7.96\\
+        \tiny \textbf{Macro Precision Score}  & \tiny 9.19 & \tiny 8.90& \tiny \textbf{9.88}&\tiny 8.47&\tiny 9.58&\tiny 9.20&\tiny 9.19\\
+        \tiny \textbf{Macro Recall Score}     & \tiny 8.20 & \tiny 8.35& \tiny \textbf{8.44}&\tiny 7.89&\tiny 8.30&\tiny 8.05&\tiny 7.96\\
         \tiny \textbf{Macro F1 Score}        & \tiny 8.67 & \tiny 8.62& \tiny \textbf{9.11}&\tiny 8.17&\tiny 8.89&\tiny 8.59&\tiny 8.53\\
         \tiny \textbf{Micro Precision Score} & \tiny 11.3 & \tiny 11.3& \tiny 11.5&\tiny \textbf{18.8}&\tiny 11.4&\tiny 10.7&\tiny 10.9\\
-        \tiny \textbf{Micro Recall Score}    & \tiny 8.88 & \tiny 8.66& \tiny 9.07&\tiny \textbf{14.8}&\tiny 8.98&\tiny 8.47&\tiny 8.58\\
+        \tiny \textbf{Micro< Recall Score}    & \tiny 8.88 & \tiny 8.66& \tiny 9.07&\tiny \textbf{14.8}&\tiny 8.98&\tiny 8.47&\tiny 8.58\\
         \tiny \textbf{Micro F1 Score}        & \tiny 9.95 & \tiny 9.70& \tiny 10.1&\tiny \textbf{16.6}&\tiny 10.0&\tiny 9.49&\tiny 9.61\\
     \end{tabular}
     \caption{Ergebnisse der SVM mit Topics und Labelkombinationen}
@@ -45,11 +99,11 @@
 \end{table}
 
 \begin{table}[h]
-    \begin{tabular}{rccccccc}
+    \begin{tabular}{r|ccccccc}
         \tiny\textbf{Metrik} & \tiny\textbf{10 Topics} &\tiny \textbf{40 Topics} &\tiny \textbf{70 Topics} &\tiny \textbf{100 Topics} & \tiny \textbf{130 Topics} &  \tiny \textbf{160 Topics} &  \tiny \textbf{190 Topics} \\
         \hline
-        \tiny \textbf{Mean Precision Score}  & \tiny 7.26& \tiny 9.31& \tiny \textbf{10.5}&\tiny 7.31&\tiny 8.51&\tiny 10.4&\tiny 8.72\\
-        \tiny \textbf{Mean Recall Score}     & \tiny 0.01& \tiny 0.06& \tiny 0.06&\tiny \textbf{3.89}&\tiny 0.07&\tiny 0.05&\tiny 0.06\\
+        \tiny \textbf{Macro Precision Score}  & \tiny 7.26& \tiny 9.31& \tiny \textbf{10.5}&\tiny 7.31&\tiny 8.51&\tiny 10.4&\tiny 8.72\\
+        \tiny \textbf{Macro Recall Score}     & \tiny 0.01& \tiny 0.06& \tiny 0.06&\tiny \textbf{3.89}&\tiny 0.07&\tiny 0.05&\tiny 0.06\\
         \tiny \textbf{Macro F1 Score}        & \tiny 0.02& \tiny 0.12& \tiny 0.12&\tiny \textbf{5.08}&\tiny 0.14&\tiny 0.10&\tiny 0.12\\
         \tiny \textbf{Micro Precision Score} & \tiny 0.01& \tiny 0.08& \tiny 0.08&\tiny \textbf{11.7}&\tiny 0.08&\tiny 0.06&\tiny 0.07\\
         \tiny \textbf{Micro Recall Score}    & \tiny 0.01& \tiny 0.06& \tiny 0.06&\tiny \textbf{9.82}&\tiny 0.06&\tiny 0.05&\tiny 0.06\\
@@ -58,5 +112,15 @@
     \caption{Ergebnisse der SVM mit Topics und One-Vs-Rest}
     \label{tab:topics_svm_ovr}
 \end{table}
-%Ergebisse darstellen
-%Diese werden erst im Kapitel Diskussion interpretiert
+
+Wie für die Unigram SVM ist in Grafik \ref{fig:svm_topic_eval} sind die F1-Maße für die Klassen aufgetragen,
+diesmal jedoch in zwei unterschiedlichen Graphen, um die Werte der verschiedene Topicgrößen zu einem der beiden Verfahren miteinander
+zu Vergleichen.
+
+\begin{figure}[H]
+    \centering
+    \def\svgwitdth{0.1\columnwidth}
+    \input{figures/eval_svm_labelwise_plot.pdf_tex}
+    \caption{Ergebnisse der Klassifizierung mit Topics als Vorverarbeitung}
+    \label{fig:svm_topic_eval}
+\end{figure}

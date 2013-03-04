@@ -1,20 +1,27 @@
 \section{Diskussion}
 
 \subsection{Unigram SVM}
-% Komentar zu den Unigram SVMs
+Die Klassifizierung des Testdatensatzes mit einer Unigram SVM liefert eine F1-Score von $50$ bis $60 \%$.
+Obwohl die Labelkombination und die One-vs-Rest SVM fast die gleiche Macro Precision haben, zeigen die restlichen Metriken deutlich, dass die Labelkombinationen SVM um etwa $10 \%$ bessere Werte liefert als die One-vs-Rest SVM.
+
 
 \subsection{Unigram SVM mit Topicmodells}
-% Komentar zu den Topicmodells
+Es ist festzuhalten, dass je mehr Topics das zu lernende Topicmodell hat, desto resourcen-aufwendiger werden die Berechnungen.
+Aufgrund vom wachsenden Verbrauch von Speicher und Arbeitsspeicher war es nicht möglich Modelle mit mehr als $190$ Topics zu lernen.
+
 Es wird beobachtet, dass die SVM mit Topics und Labelkombinationen deutlich bessere Ergebnisse liefert als die eine mit One-vs-Rest Klassifizierer.
 Bei der Klassifizierung mit Labelkombinationen gibt es keine gewaltigen Unterschiede bei den verschiedenen Topicmodells.
-Jedoch bemerken wir, dass bei einer nach der Klassengrößen gewichteten Bildung der Durchschnittswerte sich das Modell mit 100 Topics abhebt.
-% One-vs-Rest
-% vgl zwischen beiden
+Wir bemerken jedoch, dass bei einer nach der Klassengrößen gewichteten Bildung der Durchschnittswerte sich das Modell mit $100$ Topics abhebt.
+Bei der Klassifizierung mit One-vs-Rest Klassifizierer schneidet das Modell mit $100$ Topics deutlich besser ab als alle anderen Modelle.
+Es lässt sich auch keine Tendenz besserer Resultate mit steigender Anzahl der gelernten Topics feststellen.
 
-\subsection{Vergleich zwischen den beiden Verfahren}
-% Vergleich zwischen beiden Ansätzen
-Wenn wir die Ergebnisse beider Ansätze mit einander vergleichen, lässt sich feststellen, dass die Unigram SVMs um mehr als das fünf-fache besser abschneiden, als die SVM auf dem besten Topicmodell
-(je nach Gewichtung, das Modell mit 70 oder mit 100 Topics).
+
+\subsection{Vergleich beider Verfahren}
+Wenn wir die Ergebnisse beider Ansätze mit einander vergleichen, erkennen wir, dass die Unigram SVMs um mehr als das fünf-fache besser abschneiden, als die SVM auf dem besten Topicmodell
+(je nach Gewichtung, das Modell mit $70$ oder mit $100$ Topics) -- bei der Unigram Labelkombinationen SVM haben wir eine Micro F1-Score von $61.8 \%$, während die Micro F1-Score von der SVM mit Topicmodells und Labelkombinationen nur $16.6 \%$ beträgt.
+In einem ähnlichen Verhältnis zu einander stehen auch alle restlichen Metriken.
+Also wurde die Annahme, dass eine Dimensionsreduktion mit LDA eine bessere Multilabel-Klassifikation ermöglichen wird, widerlegt.
+
 
 
 % Probleme

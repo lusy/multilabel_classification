@@ -1,5 +1,5 @@
 \section{Ergebnisse}
-\subsection{unigram SVM}
+\subsection{Unigram SVM}
 \label{sub:unigram_svm}
 
 Zunächst haben wir die Support Vector Machine auf einem Unigram Vector Space Modell gelernt,
@@ -72,21 +72,21 @@ Dargestellt werden die Topics durch die Wörter mit der höchsten Wahrscheinlich
     \label{tab:topics_words}
 \end{table}
 
-Nach dem Trainieren der Topics auf dem Trainingsdatensatz, wurde dieses Modell dann auf die ungesehen Dokumente aus
+Nach dem Trainieren der Topics auf dem Trainingsdatensatz, wurde dieses Modell dann auf die ungesehenen Dokumente aus
 dem Testdatensatz angewandt.
 Dadurch erhalten die Testdokumente ebenfalls eine Verteilung über die gelernten Topics.
 
 \subsection{Topic SVM}
 \label{sub:topic_svm}
-Training- und Testdatesatz werden jetzt durch die Verteilung über ihre Topics repräsentiert.
+Training- und Testdatensatz werden jetzt durch die Verteilung über ihre Topics dargestellt.
 Bei einem Topicmodell mit $n$ Topics
-werden die Dokumente jetzt nur noch durch $n$ numerische Features repräsentiert und es gilt $\forall p_i: 0 \le p_i \le 1 $, wobei $p_i$
+werden die Dokumente nur noch durch $n$ numerische Features repräsentiert und es gilt $\forall p_i: 0 \le p_i \le 1 $, wobei $p_i$
 die Wahrscheinlichkeit für das i-te Topic ist.
 
-Wie in dem Abschnitt mit der Unigram SVM werden wieder die beiden Varianten Labelkombinationen und One-Vs-Rest ausgewertet.
+Wie bei der Unigram SVM werden wieder die beiden Varianten Labelkombinationen und One-Vs-Rest ausgewertet.
 Das Modell für die SVM wurde auf den Trainingsdokumenten als Topicverteilung gelernt und dann auf die Testdokumente angewandt.
 
-In den Tabllen \ref{tab:topics_svm_labelcombs} und \ref{tab:topics_svm_ovr} werden die Ergebnisse anhand der Anzahl der Topics
+In den Tabellen \ref{tab:topics_svm_labelcombs} und \ref{tab:topics_svm_ovr} werden die Ergebnisse anhand der Anzahl der Topics
 dargestellt.
 
 \begin{table}[h]

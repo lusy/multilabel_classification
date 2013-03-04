@@ -62,7 +62,7 @@ Tabelle \ref{tab:class_meaning} gibt einen Überblick über die Häufigkeit und 
 
 \subsection{Allgemeine Vorverarbeitung}
 
-Zunächst haben wir unseren Datensatz in Test- und Trainingsdaten im Verhältnis 3:7 aufgeteilt, um unser gelerntes Modell auf ungesehen Daten testen zu können.
+Zunächst haben wir den Datensatz in Test- und Trainingsdaten im Verhältnis 3:7 aufgeteilt, um die gelernten Modelle auf ungesehen Daten testen zu können.
 Für die Aufteilung wurde \emph{stratified sampling} verwendet, sodass die Klassen anteilig in Test- und Trainingsdaten vertreten sind.
 Wichtig hierbei ist es, dass wir anstatt der einzelnen Klassen die vergebenen Klassenkombinationen verwenden, sodass die Kombinationen von Klassen anteilig in den beiden Datensätzen auftreten.
 
@@ -87,6 +87,7 @@ Das hat die Erprobung einer Dimensionsreduktion mithilfe von LDA motiviert.
 
 Auf den Daten wurden zuerst X Topics mit \emph{mallet} \cite{McCallumMALLET} gelernt.
 Später wurden diese Topics als Features für die lineare \emph{Support Vector Machine} verwendet.
+Es wurden mehreren Experimenten durchgeführt, jeweils mit steigender Anzahl von Topics: $10$, $40$, $70$, $100$, $130$, $160$, $190$.
 
 %Many have noted the need for feature
 %selection to make the use of conventional learning methods possible, to improve

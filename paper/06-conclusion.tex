@@ -1,9 +1,11 @@
 \section{Zusammenfassung}
 
 In dieser Arbeit haben wir zwei Ansätze zur Multilabel-Klassifikation von wissenschaftlichen Publikationen anhand von deren Titeln und Abstracts implementiert und verglichen.
-Zunächst wurden die Publikationen direkt, mit hilfe einer erweiterten SVM klassifiziert.
+Zunächst wurden die Publikationen direkt mit hilfe einer Unigram SVM klassifiziert.
 Hier haben wir folgende Erkenntnisse gewonnen/folgende Ergebnisse erzielt....
 Später wurde der Zwischenschritt einer Dimensionsreduktion mit LDA implementiert.
+Obwohl es mehrere Modelle mit unterschiedlicher Topicanzahl gelernt wurden, waren die Klassifizierungsergebnisse bei diesem Ansatz deutlich schlechter als bei der Unigram SVM.
+Die Hypothese, dass eine Dimensionsreduktion der Daten mittels LDA Topicmodells das Klassifikationsproblem optimieren wird, hat sich nicht bestätigt.
 
 % was ist hierbei rausgekommen?
 % welches war besser?

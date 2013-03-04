@@ -23,6 +23,7 @@ def main(args):
             label_index.append(str(labels.index(label)))
 
         label_str = ','.join(label_index)
+        #label_str = ','.join(doc_labels)
         feat = line_split[2:]
         chunk_feat = [(int(t) + 1, float(p)) for t, p in chunks(feat, 2)]
         chunk_feat.sort()

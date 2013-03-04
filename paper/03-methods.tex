@@ -71,48 +71,4 @@ Hierfür haben wir .... benutzt. %tool / bibliothek?
 
 % noch was?
 
-\subsection{Multilabel-Klassifikation}
-% scikit-learn: LinearSVC
-
-In unserem ersten Experiment haben wir auf dem Datensatz direkt Multilabel-Klassifikation mit SVM angewandt.
-Dafür haben wir den \emph{LinearSVC}-Klassifier von scikit-learn genutzt.
-Dabei wurden die Daten im Vectorspace-Modell dargestellt, so dass jedes Dokument als Vektor modelliert ist, in dem der $i$. Eintrag angibt, wie oft das $i$. Wort aus dem Korpus in diesem Dokument vorkommt.
-
-
-\subsection{Dimensionsreduktion mit LDA und Multilabel-Klassifikation}
-
-Eine Repräsentation der Textdokumente im Vektorspace-Modell liefert hoch-dimensionale Daten, wobei jedes Dokument mehr als $1$ Millionen Merkmale besitzt.
-Dabei sind die Vektoren, die die einzelnen Dokumente darstellen, sehr dünn besetzt.
-Das hat die Erprobung einer Dimensionsreduktion mithilfe von LDA motiviert.
-
-Auf den Daten wurden zuerst X Topics mit \emph{mallet} \cite{McCallumMALLET} gelernt.
-Später wurden diese Topics als Features für die lineare \emph{Support Vector Machine} verwendet.
-Es wurden mehreren Experimenten durchgeführt, jeweils mit steigender Anzahl von Topics: $10$, $40$, $70$, $100$, $130$, $160$, $190$.
-
-%Many have noted the need for feature
-%selection to make the use of conventional learning methods possible, to improve
-%generalization accuracy, and to avoid "overfitting". 
-%cite{Joachims:1998:TCS:645326.649721}
-% aber später sagt er eigentlich dass SVMs auch für viele Features geeignet sind, weil sie nicht anhand der Anzahl von Features arbeiten, sondern den Margin zwischen den Datenpunkten versuchen zu maximieren
-
-% mallet für LDA
-% scikit-learn: LinearSVC für die Klassifikation
-% was ist überhaupt die Motivation für die Dimensionsreduktion?
-    %Hoch-dimensionale Daten (> 1 Mio. Merkmale)
-    % jedes Wort ist Feature
-    %Sehr dünn besetzte (sparse) Vektoren
-    % d.h. sehr wenige Informationen pro Merkmal
-    % Reduktion auf wenige (100-1000?) Dimensionen (die Topics werden die Features für die SVM)
-    % Kann auch als Kompression betrachtet werden.
-    % Spart Rechenzeit, Speicher, ...
-    % Erkennung und Clustering zusammenhängender Merkmale.
-    %\frametitle{Vorbereitung Topic models}
-    %\begin{itemize}
-    %    \item Verteilung der Topics ist Feature für Dokumente
-    %    \item Werte zwischen 0 und 1
-    %    \item Summe für Einträge eines Dokuments beträgt 1
-    %    \item Eintrag i enthält die Wahrscheinlichkeit für Topic i
-    %    \item $\#topics << \#words$
-
-
 

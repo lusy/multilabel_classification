@@ -1,10 +1,13 @@
 \section{Ergebnisse}
+
 \subsection{Unigram SVM}
 \label{sub:unigram_svm}
 
 Zunächst haben wir die Support Vector Machine auf einem Unigram Vector Space Modell gelernt,
 um einen Vergleichswert für unseren Ansatz zu haben.
-Hiefür wurden zwei unterschiedliche Verfahren angewandt.
+Dabei wurde jedes Dokument als Vektor modelliert, in dem der $i$. Eintrag angibt, wie oft das $i$. Wort aus dem Korpus in diesem Dokument vorkommt.
+
+Für das Lernen einer Unigram SVM wurden zwei unterschiedliche Verfahren angewandt.
 Beim ersten Verfahren wurde das Multilabel Klassifikationsproblem auf ein Multiclass Klassifikationsproblem reduziert,
 indem jede Labelkombination als eigene Klasse angesehen wird.
 Die Labelkombinationen wurden sortiert.
@@ -43,10 +46,16 @@ Klassen für beide Varianten aufgetragen.
     \label{fig:svm_text_eval}
 \end{figure}
 
+
 \subsection{Topics mit LDA}
 \label{sub:topics}
+Eine Repräsentation der Textdokumente im Vektorspace-Modell liefert hoch-dimensionale Daten, wobei jedes Dokument mehr als $1$ Millionen Merkmale besitzt.
+Dabei sind die Vektoren, die die einzelnen Dokumente darstellen, sehr dünn besetzt.
+Das hat die Erprobung einer Dimensionsreduktion mithilfe von LDA motiviert.
+
 Die Topics, die für die Featurereduktion verwendet werden sollen, wurden mit Mallet \cite{McCallumMALLET} gelernt.
 Hierfür wurden die Stopwörter entfernt und wieder nur das Unigram Modell verwendet um die Topics zu lernen.
+Es wurden mehrere Experimente durchgeführt, jeweils mit steigender Anzahl von Topics: $10$, $40$, $70$, $100$, $130$, $160$, $190$.
 In Tabelle \ref{tab:topics_words} befinden sich einige der gelernten Topics der Trainingsdokumente aus dem Topicmodell mit 100 Topics.
 Dargestellt werden die Topics durch die Wörter mit der höchsten Wahrscheinlichkeit.
 

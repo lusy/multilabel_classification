@@ -2,16 +2,19 @@
 \subsection{unigram SVM}
 \label{sub:unigram_svm}
 
-Zunächst haben wir die Support Vector Machine auf einem Unigram Vector Space Model gelernt,
-um eine Vergleichwert für unseren Ansatz zu haben. Hiefür wurden zwei unterschiedliche Verfahren angewandt.
-Beim ersten Verfahren wurde das Multilabel Klassifikationproblem auf ein Multiclass Klassifikationsproblem reduziert,
-indem eine Labelkombination als eigene Klasse angesehen wird. Die Labelkombinationen wurden sortiert.
+Zunächst haben wir die Support Vector Machine auf einem Unigram Vector Space Modell gelernt,
+um einen Vergleichswert für unseren Ansatz zu haben.
+Hiefür wurden zwei unterschiedliche Verfahren angewandt.
+Beim ersten Verfahren wurde das Multilabel Klassifikationsproblem auf ein Multiclass Klassifikationsproblem reduziert,
+indem jede Labelkombination als eigene Klasse angesehen wird.
+Die Labelkombinationen wurden sortiert.
 Das zweite Verfahren verwendet den One-Vs-Rest-Klassifizierer(OvR), der für jede Klasse einen binären Klassifikator lernt,
 gegen alle anderen Datensätze, die diese Klasse nicht erhalten.
 
-Für die SVMs wurde eine linearer Kernel verwendet und mit der Klasse LinearSVC aus dem Machine Learning Package scikit-learn \cite{scikit-learn} trainiert. Der Bestrafungsparameter $C = 0.01$ wurde durch mehrere Durchläufe mit $C \in \{ 10^{-4},10^{-3}, \dots, 10^4 \}$ ermittelt.
+Für die SVMs wurde ein linearer Kernel verwendet und mit der Klasse LinearSVC aus dem \emph{python} Machine Learning Package \emph{scikit-learn} \cite{scikit-learn} trainiert.
+Der Bestrafungsparameter $C = 0.01$ wurde durch mehrere Durchläufe mit $C \in \{ 10^{-4},10^{-3}, \dots, 10^4 \}$ ermittelt.
 
-In Tabelle ~\ref{tab:unigram_svm} werden verschiedene Metriken für die beiden verfahren mit der Unigram SVM evaluiert.
+In Tabelle \ref{tab:unigram_svm} werden verschiedene Metriken für beide der Unigram SVM Verfahren evaluiert.
 
 \begin{table}[h]
     \centering
@@ -29,8 +32,8 @@ In Tabelle ~\ref{tab:unigram_svm} werden verschiedene Metriken für die beiden v
     \label{tab:unigram_svm}
 \end{table}
 
-Nach der Auswertung der Durschnitte über alle Klassen ist in Grafik \ref{fig:svm_text_eval} das F1-Maß für jede der einzelne
-Klasse für beide Varianten aufgetragen.
+Nach der Auswertung der Durschnitte über alle Klassen ist in Abbildung \ref{fig:svm_text_eval} das F1-Maß für jede der einzelnen
+Klassen für beide Varianten aufgetragen.
 
 \begin{figure}[H]
     \centering
@@ -42,9 +45,10 @@ Klasse für beide Varianten aufgetragen.
 
 \subsection{Topics mit LDA}
 \label{sub:topics}
-Die Topics die für die Featurereduktion verwendet werden sollen, wurden mit Mallet \cite{McCallumMALLET} gelernt.
-Hierfür wurden die Stopwörter entfernt und wieder nur das Unigram Modell verwendet um die Topics zu lernen. 
-In Tabelle \ref{tab:topics_words} befinden sich einige der gelernten Topics der Trainingsdokumente aus dem Topicmodel mit 100 Topics. Dargestellt werden Topics durch die Wörter mit der höchsten Wahrscheinlichkeit.
+Die Topics, die für die Featurereduktion verwendet werden sollen, wurden mit Mallet \cite{McCallumMALLET} gelernt.
+Hierfür wurden die Stopwörter entfernt und wieder nur das Unigram Modell verwendet um die Topics zu lernen.
+In Tabelle \ref{tab:topics_words} befinden sich einige der gelernten Topics der Trainingsdokumente aus dem Topicmodell mit 100 Topics.
+Dargestellt werden die Topics durch die Wörter mit der höchsten Wahrscheinlichkeit.
 
 \begin{table}[h]
     \centering
@@ -68,19 +72,21 @@ In Tabelle \ref{tab:topics_words} befinden sich einige der gelernten Topics der 
     \label{tab:topics_words}
 \end{table}
 
-Nach dem trainieren der Topics auf dem Trainingsdatensatz, wurde dieses Modell dann auf die ungesehen Dokumente aus
-dem Testdatensatz angewandt. Dadurch erhalten die Testdokumente ebenfalls eine Verteilung über die gelernten Topics.
+Nach dem Trainieren der Topics auf dem Trainingsdatensatz, wurde dieses Modell dann auf die ungesehen Dokumente aus
+dem Testdatensatz angewandt.
+Dadurch erhalten die Testdokumente ebenfalls eine Verteilung über die gelernten Topics.
 
 \subsection{Topic SVM}
 \label{sub:topic_svm}
-Training- und Testdatesatz werden jetzt durch die Verteilung über ihre Topics repräsentiert. Bei eine Topicmodell mit $n$ Topics
-werden die Dokumente jetzt nur noch durch $n$ numerische Features repräsentiert und es gilt $\all p_i: 0 \le p_i \le 1 $ mit $p_i$
-Wahrscheinlichkeit für das i-te Topic.
+Training- und Testdatesatz werden jetzt durch die Verteilung über ihre Topics repräsentiert.
+Bei einem Topicmodell mit $n$ Topics
+werden die Dokumente jetzt nur noch durch $n$ numerische Features repräsentiert und es gilt $\forall p_i: 0 \le p_i \le 1 $, wobei $p_i$
+die Wahrscheinlichkeit für das i-te Topic ist.
 
-Wie in dem Abschnitt mit der Unigram SVM werden wieder die beiden Varianten Labelkombinationen und One-Vs-Rest verwendet.
+Wie in dem Abschnitt mit der Unigram SVM werden wieder die beiden Varianten Labelkombinationen und One-Vs-Rest ausgewertet.
 Das Modell für die SVM wurde auf den Trainingsdokumenten als Topicverteilung gelernt und dann auf die Testdokumente angewandt.
 
-In den Tabllen \ref{tab:topics_svm_labelcombs} und \ref{tab:topics_svm_ovr} werden die Ergebnisse anhand von der Anzahl der Topics
+In den Tabllen \ref{tab:topics_svm_labelcombs} und \ref{tab:topics_svm_ovr} werden die Ergebnisse anhand der Anzahl der Topics
 dargestellt.
 
 \begin{table}[h]
@@ -113,9 +119,11 @@ dargestellt.
     \label{tab:topics_svm_ovr}
 \end{table}
 
-Wie für die Unigram SVM ist in Grafik \ref{fig:svm_topic_eval} sind die F1-Maße für die Klassen aufgetragen,
-diesmal jedoch in zwei unterschiedlichen Graphen, um die Werte der verschiedene Topicgrößen zu einem der beiden Verfahren miteinander
-zu Vergleichen.
+Wie für die Unigram SVM sind in Abbildung \ref{fig:svm_topic_eval} die F1-Maße für die Klassen aufgetragen,
+diesmal jedoch in zwei unterschiedlichen Graphen, um die Werte der verschiedenen Topicgrößen zu einem der beiden Verfahren miteinander
+zu vergleichen.
+
+% ?? also, das eine ist Labelkombinationen, das andere OvR oder wie?
 
 \begin{figure}[H]
     \centering

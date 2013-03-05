@@ -17,7 +17,7 @@ gegen alle anderen Datensätze, die diese Klasse nicht erhalten.
 Für die SVMs wurde ein linearer Kernel verwendet und mit der Klasse LinearSVC aus dem \emph{python} Machine Learning Package \emph{scikit-learn} \cite{scikit-learn} trainiert.
 Der Bestrafungsparameter $C = 0.01$ wurde durch mehrere Durchläufe mit $C \in \{ 10^{-4},10^{-3}, \dots, 10^4 \}$ ermittelt.
 
-In Tabelle \ref{tab:unigram_svm} werden verschiedene Metriken für beide der Unigram SVM Verfahren evaluiert.
+In Tabelle \ref{tab:unigram_svm} werden die verschiedene Metriken für beide der Unigram SVM Verfahren evaluiert.
 
 \begin{table}[h]
     \centering
@@ -138,6 +138,6 @@ zu vergleichen.
     \centering
     \def\svgwitdth{0.1\columnwidth}
     \input{figures/eval_svm_labelwise_plot.pdf_tex}
-    \caption{Ergebnisse der Klassifizierung mit Topics als Vorverarbeitung}
+    \caption{Ergebnisse der Klassifizierung mit Topics als Vorverarbeitung: (oben) Labelkombinationen (unten) One-Vs-Rest}
     \label{fig:svm_topic_eval}
 \end{figure}

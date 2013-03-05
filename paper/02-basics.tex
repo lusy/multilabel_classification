@@ -1,9 +1,22 @@
-\section{Grundlagen}
+\section{Methoden}
+\subsection{Sampling}
+
+Zunächst haben wir den Datensatz in Test- und Trainingsdaten im Verhältnis 3:7 aufgeteilt, um die gelernten Modelle auf ungesehen Daten testen zu können.
+Für die Aufteilung wurde \emph{stratified sampling} verwendet, sodass die Klassen anteilig in Test- und Trainingsdaten vertreten sind.
+Wichtig hierbei ist es, dass wir anstatt der einzelnen Klassen die vergebenen Klassenkombinationen verwenden, sodass die Kombinationen von Klassen anteilig in den beiden Datensätzen auftreten.
+
 \subsection{Multilabel Klassifikation}
 \label{sub:multilabel_klassifikation}
 Es existieren zwei Arten von Ansätzen, um das Multilabel Klassifikation Problem zu lösen.
-Bei der ersten wird das Problem transformiert und bei der zweiten werden existierende Verfahren adaptiert.
-% comment lusy: verstehe ich nicht
+
+Um mit gängigen Verfahren zur Klassifikation das Problem zu lösen werden die Labels so transformiert,
+so dass die Labels von den Algorithmen verwendet werden können. Wir verwenden die Transformation der Labelkombinationen,
+dass heißt jede Kombination der Labels wird als eine Klasse angesehen, wobei die Labels sortiert sind. Also werden die Vergaben der Labels
+$l_1,l,2$, $l_2,l_1$ als gleich angesehen.
+
+Die andere Möglichkeit besteht darin bestehende Verfahren und Algorithmen auf das Mutlilabel Klassifikationproblem zu adaptieren.
+Wir verwenden hierfür einen sogenannten One-Vs-Rest-Klassifikator, der für jede Klasse $c_i$ einen binären Klassifikator lernt.
+Weitere Möglichkeiten um das Problem der Multilabelklassifikation anzugehen sind in \cite{Tsoumakas07multi-labelclassification:} zu finden.
 
 \subsection{Support Vector Machines}
 \label{sub:support_vector_machines}
@@ -14,18 +27,6 @@ Die SVM versucht dann anhand dieser Daten eine Hyperebene so in den Raum zu lege
 Der Abstand der Vektoren, die der Hyperebene am nächsten liegen, wird dabei maximiert.
 Ursprünglich wurden SVMs zur Unterteilung der Objekte in nur zwei Klassen konzipiert.
 Es wurde gezeigt, dass Support Vector Machines eines der besten Verfahren zur Klassifikation sind \cite{Joachims:1998:TCS:645326.649721}.
-
-
-%\begin{figure}[h]
-    %\centering
-    %\def\svgwitdth{0.75\columnwidth}
-    %\input{figures/svm_intro.pdf_tex}
-    %\caption{Hypereben einer SVM im 2-dimensionalen}
-    %\label{fig:svm_intro}
-    %\footnote*{http://commons.wikimedia.org/wiki/File:Svm\_intro.svg}
-%\end{figure}
-
-
 
 Um Support Vector Machines für das Multilabel Klassifizierungsproblem zu adaptieren, wird für jede Klasse $c \in L$ ein $\tilde c$ bestimmt, sodass für ein Dokument $D_i$ mit den Labels $L_i$ gilt:
 \[
@@ -44,17 +45,13 @@ Ist die Antwort positiv, wird sich für dieses Dokument diese Klasse notiert, so
 \subsection{Latent Dirichlet Allocation}
 \label{sub:latent_dirichlet_allocation}
 
-Die \emph{Latent Dirichlet Allocation} (LDA) ist ein generatives stochastisches Modell, das eine Topic-Verteilung für eine angegebene Menge von Textdokumenten errechnet.
-Dabei ist jedes Topic eine Verteilung über allen in der Dokumentensammlung vorhandenen Wörtern.
-Jedes Dokument kann als eine Verteilung über Topics dargestellt werden.
+Die \emph{Latent Dirichlet Allocation} (LDA) ist ein generatives stochastisches Modell und wurde in \cite{Blei:2003:LDA:944919.944937} eingeführt.
+LDA lernt die in einer Textkollektion zugrundeliegenen Themen(Topics) der Dokumente. Die Anzahl der Topics muss vorher bekannt sein.
+Die Topics sind Dirichletverteilungen über Wörtern und die Dokumente werden wiederrum als eine Dirichletverteilung über Topics modelliert.
+Über diese Verteilungen lassen sich Ähnlichkeiten der Dokumente ableiten, da sie ähnliche zugrundeliegende Themen diskutieren.
 
-% jedes Topic ist eine Verteilung über Wörter
-% jedes Dokument ist Verteilung über Topics
-% Latent Dirichlet Allocation(LDA)
-%      generativer Prozess zum finden von Topics der Dokumente
-%      findet k Topics auf Dokumenten
-
-
+Die Verteilung über die Topics verwenden wir dann als neue Merkmale die Dokumenten, um sie mit einer Support Vektor Machine zu klassifizieren.
+Da dadurch die Anzahl der Features sehr viel kleiner wird bei uns max. 190 Merkmale, kann man von einer Art Featurereduktion sprechen.
 
 \subsection{Evaluierungsmaße}
 Um die erzielten Ergebnisse auswerten und mit einander vergleichen zu können, haben wir die gängigen Maße \emph{Precision}, \emph{Recall} und \emph{F1} genutzt.

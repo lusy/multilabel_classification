@@ -9,10 +9,10 @@ Wichtig hierbei ist es, dass wir anstatt der einzelnen Klassen die vergebenen Kl
 \label{sub:multilabel_klassifikation}
 Es existieren zwei Arten von Ansätzen, um das Multilabel Klassifikation Problem zu lösen.
 
-Um mit gängigen Verfahren zur Klassifikation das Problem zu lösen werden die Labels so transformiert,
-so dass die Labels von den Algorithmen verwendet werden können. Wir verwenden die Transformation der Labelkombinationen,
+Um mit gängigen Verfahren zur Klassifikation das Problem zu lösen werden die Labels transformiert,
+so dass die Labels von bekannten Algorithmen verwendet werden können. Wir verwenden die Transformation der Labelkombinationen,
 dass heißt jede Kombination der Labels wird als eine Klasse angesehen, wobei die Labels sortiert sind. Also werden die Vergaben der Labels
-$l_1,l,2$, $l_2,l_1$ als gleich angesehen.
+$l_1,l,2$ und $l_2,l_1$ als gleich angesehen.
 
 Die andere Möglichkeit besteht darin bestehende Verfahren und Algorithmen auf das Mutlilabel Klassifikationproblem zu adaptieren.
 Wir verwenden hierfür einen sogenannten One-Vs-Rest-Klassifikator, der für jede Klasse $c_i$ einen binären Klassifikator lernt.
@@ -23,7 +23,7 @@ Weitere Möglichkeiten um das Problem der Multilabelklassifikation anzugehen sin
 Die \emph{Support Vector Machine} (SVM) ist ein Verfahren des überwachten Lernens, das zum Klassifizieren von Objekten verwendet wird.
 Zum Lernen einer SVM werden die Trainingsdaten als Vektoren, zusammen mit den zugehörigen Klassen übergeben.
 Für Texte ist die Repräsentation als Vektor meistens das Vektorspace-Modell, bei dem jedes Wort in dem Text als Feature angesehen wird.
-Die SVM versucht dann anhand dieser Daten eine Hyperebene so in den Raum zu legen, so dass die Trainingsdaten in zwei Klassen eingeteilt werden.
+Die SVM versucht dann anhand dieser Daten eine Hyperebene in den Raum zu legen, so dass die Trainingsdaten in zwei Klassen eingeteilt werden.
 Der Abstand der Vektoren, die der Hyperebene am nächsten liegen, wird dabei maximiert.
 Ursprünglich wurden SVMs zur Unterteilung der Objekte in nur zwei Klassen konzipiert.
 Es wurde gezeigt, dass Support Vector Machines eines der besten Verfahren zur Klassifikation sind \cite{Joachims:1998:TCS:645326.649721}.
@@ -47,10 +47,10 @@ Ist die Antwort positiv, wird sich für dieses Dokument diese Klasse notiert, so
 
 Die \emph{Latent Dirichlet Allocation} (LDA) ist ein generatives stochastisches Modell und wurde in \cite{Blei:2003:LDA:944919.944937} eingeführt.
 LDA lernt die in einer Textkollektion zugrundeliegenen Themen(Topics) der Dokumente. Die Anzahl der Topics muss vorher bekannt sein.
-Die Topics sind Dirichletverteilungen über Wörtern und die Dokumente werden wiederrum als eine Dirichletverteilung über Topics modelliert.
+Die Topics sind Dirichletverteilungen über Wörtern und die Dokumente werden wiederum als eine Dirichletverteilung über Topics modelliert.
 Über diese Verteilungen lassen sich Ähnlichkeiten der Dokumente ableiten, da sie ähnliche zugrundeliegende Themen diskutieren.
 
-Die Verteilung über die Topics verwenden wir dann als neue Merkmale die Dokumenten, um sie mit einer Support Vektor Machine zu klassifizieren.
+Die Verteilung über die Topics verwenden wir als neue Merkmale für die Dokumenten, um sie mit einer Support Vektor Machine zu klassifizieren.
 Da dadurch die Anzahl der Features sehr viel kleiner wird bei uns max. 190 Merkmale, kann man von einer Art Featurereduktion sprechen.
 
 \subsection{Evaluierungsmaße}
